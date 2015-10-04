@@ -26,8 +26,6 @@
 					<h2 class="uppercase font-11">Discover</h2>
 					<ul class="discover triangle hover row">
 						<li class="col-xs-6"><a href="aboutus.php">About Us</a></li>
-						<li class="col-xs-6"><a href="aboutus.php">How It Works</a></li>
-						<li class="col-xs-6"><a href="#">Our Team</a></li>
 						<li class="col-xs-6"><a href="#">Travel Tips</a></li>
 						<li class="col-xs-6"><a href="#">Security</a></li>
 						<li class="col-xs-6"><a href="#">Contact</a></li>

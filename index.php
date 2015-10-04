@@ -30,6 +30,12 @@
 		
 		<!-- Responsive Styles -->
 		<link rel="stylesheet" href="css/responsive.css">
+		<style>
+			.pac-container{
+				display:block;
+				z-index:99999999;
+			}
+		</style>
 		
 		<!-- CSS for IE -->
 		<!--[if lte IE 9]>
@@ -42,6 +48,14 @@
 			<script type='text/javascript' src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 			<script type='text/javascript' src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
 		<![endif]-->
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFq_BipqZO85dGFOpGXlEDG5Mci1uHiXA&libraries=places"></script>
+		<script type="text/javascript">
+			function initialize() {
+				var input = document.getElementById('destination');
+				var autocomplete = new google.maps.places.Autocomplete(input);
+			}
+			google.maps.event.addDomListener(window, 'load', initialize);
+		</script>
 	</head>
 	<body>
 		<div id="page-wrapper">
@@ -65,6 +79,7 @@
 							</li>
 						</ul>
 					</div>
+					<div id="map"></div>
 					<div class="container">
 						<div class="table-wrapper full-width">
 							<div class="table-cell">
@@ -99,7 +114,7 @@
 														<div class="col-xs-12 col-sm-6">
 															<div class="form-group">
 																<label>Destination</label>
-																<input type="text" class="input-text full-width" placeholder="Osaka, Japan" value="" />
+																<input type="text" class="input-text full-width" placeholder="Osaka, Japan" value="" id="destination" autocomplete="on"/>
 															</div>
 														</div>
 														<div class="col-xs-12 col-sm-6">
@@ -416,6 +431,7 @@
 					</div>
 				</div>-->
 			</section>
+			<div id="map"></div>
 			
 			<?php include "include/footer.php"; ?>
 			
@@ -486,4 +502,4 @@
 			});
 		</script>
 	</body>
-</html>											
+</html>
