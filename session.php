@@ -2,7 +2,7 @@
 
     date_default_timezone_set('Asia/Jakarta');
     //error_reporting(0);
-   	include('includes/db.php');
+   	include('include/db.php');
     session_start();
     if(!isset($_SESSION["id"]))
     {

@@ -1,5 +1,5 @@
 <?php
-	include('includes/db.php');
+	include('include/db.php');
 	$username = $_REQUEST["username_login"];
 	$pwd = md5($_REQUEST["password"]);
 	//echo $pwd;

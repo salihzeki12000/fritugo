@@ -1,6 +1,6 @@
 <?php 
-include 'includes/db.php';
-include 'includes/User.php';
+include 'include/db.php';
+include 'include/User.php';
 session_start();
 
 // Logout the user from the session
