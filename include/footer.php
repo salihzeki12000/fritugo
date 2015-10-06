@@ -69,18 +69,18 @@
 					<ul class="travel-news">
 						<li>
 							<div class="powered-by-thumb thumb">
-								<img src="images/TripAdvisor-logo.png" alt="" class="img-responsive" />
+								<a href="https://www.tripadvisor.com/" target="_blank"><img src="images/TripAdvisor-logo.png" alt="" class="img-responsive" /></a>
 							</div>
 							<div class="powered-by-thumb thumb">
-								<img src="images/zomato-logo.png" alt="" class="img-responsive" />
+								<a href="https://www.zomato.com/" target="_blank"><img src="images/zomato-logo.png" alt="" class="img-responsive" /></a>
 							</div>
 						</li>
 						<li>
 							<div class="powered-by-thumb thumb">
-								<img src="images/expedia-logo.png" alt="" class="img-responsive" />
+								<a href="https://www.expedia.co.id/" target="_blank"><img src="images/expedia-logo.png" alt="" class="img-responsive" /></a>
 							</div>
 							<div class="powered-by-thumb thumb">
-								<img src="images/google-logo.png" alt="" class="img-responsive" />
+								<a href="https://www.google.com/" target="_blank"><img src="images/google-logo.png" alt="" class="img-responsive" /></a>
 							</div>
 						</li>
 					</ul>

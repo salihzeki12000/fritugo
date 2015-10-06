@@ -60,7 +60,7 @@
 				</div>
 				<ul class="breadcrumbs pull-right">
 					<li class="uppercase"><a href="#">HOME</a></li>
-					<li class="active uppercase">Create Trip Plan</li>
+					<li class="active uppercase">View Trip Plan</li>
 				</ul>
 			</div>
 		</div>
@@ -207,9 +207,15 @@
 	<!-- load FlexSlider scripts -->
 	<script type="text/javascript" src="components/flexslider/jquery.flexslider-min.js"></script>
 	
-	<!-- Google Map Api -->
-	<script type='text/javascript' src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
-	<script type="text/javascript" src="js/gmap3.min.js"></script>
+	<!-- Google Places Autocomplete API -->
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFq_BipqZO85dGFOpGXlEDG5Mci1uHiXA&libraries=places"></script>
+	<script type="text/javascript">
+		function initialize() {
+			var input = document.getElementById('destination');
+			var autocomplete = new google.maps.places.Autocomplete(input);
+		}
+		google.maps.event.addDomListener(window, 'load', initialize);
+	</script>
 	
 	<script type="text/javascript" src="js/calendar.js"></script>
 	

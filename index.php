@@ -30,32 +30,17 @@
 		
 		<!-- Responsive Styles -->
 		<link rel="stylesheet" href="css/responsive.css">
-		<style>
-			.pac-container{
-				display:block;
-				z-index:99999999;
-			}
-		</style>
 		
 		<!-- CSS for IE -->
 		<!--[if lte IE 9]>
 			<link rel="stylesheet" type="text/css" href="css/ie.css" />
 		<![endif]-->
 		
-		
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
 			<script type='text/javascript' src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
 			<script type='text/javascript' src="http://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js"></script>
 		<![endif]-->
-		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFq_BipqZO85dGFOpGXlEDG5Mci1uHiXA&libraries=places"></script>
-		<script type="text/javascript">
-			function initialize() {
-				var input = document.getElementById('destination');
-				var autocomplete = new google.maps.places.Autocomplete(input);
-			}
-			google.maps.event.addDomListener(window, 'load', initialize);
-		</script>
 	</head>
 	<body>
 		<div id="page-wrapper">
@@ -448,6 +433,16 @@
 		
 		<!-- Twitter Bootstrap -->
 		<script type="text/javascript" src="js/bootstrap.js"></script>
+		
+		<!-- Google Places Autocomplete API -->
+		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFq_BipqZO85dGFOpGXlEDG5Mci1uHiXA&libraries=places"></script>
+		<script type="text/javascript">
+			function initialize() {
+				var input = document.getElementById('destination');
+				var autocomplete = new google.maps.places.Autocomplete(input);
+			}
+			google.maps.event.addDomListener(window, 'load', initialize);
+		</script>
 		
 		<!-- Flex Slider -->
 		<script type="text/javascript" src="components/flexslider/jquery.flexslider-min.js"></script>
