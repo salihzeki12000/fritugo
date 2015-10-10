@@ -1,3 +1,8 @@
+<?php
+	session_start();
+	include "library/connect.php";
+	include "library/function.lib.php";
+?>
 <!DOCTYPE html>
 <!--[if IE 8]> <html class="ie ie8"> <![endif]-->
 <!--[if IE 9]> <html class="ie ie9"> <![endif]-->
@@ -327,7 +332,7 @@
 				<div class="section">
 					<div class="container">
 						<h1 class="uppercase">Travel Guide and Tips</h1>
-						<div class="tour-guide image-carousel style2 flexslider animated" data-animation="slide" data-item-width="270" data-item-margin="30" data-animation-type="fadeInUp">
+						<div class="tour-guide image-carousel style2 flexslider" data-animation="slide" data-item-width="270" data-item-margin="30" data-animation-type="fadeInUp">
 							<ul class="slides image-box">
 								<li>
 									<article class="box">
