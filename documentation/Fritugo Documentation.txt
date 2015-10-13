@@ -1,0 +1,20 @@
+#### BY WESTLY TANBRI ####
+
+TRAVEL TIPS
++ Post Types:
+- 1 = Standard Image Post
+- 2 = Slideshow Post with Slider Navigation
+- 3 = Video Post
+- 4 = Gallery Post with Slider
+- 5 = Post without Featured Image
+- 6 = Slideshow Post without Slider Navigation
+
++ Flags:
+- 1 = Pending
+- 2 = Approved
+
+IMAGES
++ Extension:
+- All image cannot contain .(dot) in the name
+
+#### END OF BY WESTLY TANBRI ####

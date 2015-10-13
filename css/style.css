@@ -10458,4 +10458,9 @@ a.destination-button:hover {
 	font-size:9pt !important;
 }
 
+.tips_profile_picture_thumb{
+	max-width:30px;
+	max-height:30px;
+}
+
 /* END STYLING BY WESTLY */

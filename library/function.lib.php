@@ -76,4 +76,12 @@
 		header("location:".$url);
 		exit;
 	}
+	
+	function autoThumb($image,$additional)
+	{
+		$image_name = explode('.',$image);
+		$new_name = $image_name[0].$additional.'.'.$image_name[1];
+		
+		return $new_name;
+	}
 ?>

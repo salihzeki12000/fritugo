@@ -74,216 +74,280 @@
                         <div class="page">
                             <div class="post-content">
                                 <div class="blog-infinite">
-                                    <div class="post">
-                                        <div class="post-content-wrapper">
-                                            <figure class="image-container">
-                                                <a href="travel_tips_read.php"><img src="http://placehold.it/870x342" alt="" /></a>
-                                            </figure>
-                                            <div class="details">
-                                                <h2 class="entry-title"><a href="travel_tips_read.php">Standard single image post</a></h2>
-                                                <div class="excerpt-container">
-                                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's stand dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a neque a tortor tempor in porta sem vulputate. Donec varius felis fermentum nis type specimen book. It has survived not only five centuries.</p>
-                                                </div>
-                                                <div class="post-meta">
-                                                    <div class="entry-date">
-                                                        <label class="date">29</label>
-                                                        <label class="month">Aug</label>
-                                                    </div>
-                                                    <div class="entry-author fn">
-                                                        <i class="icon soap-icon-user"></i> Posted By:
-                                                        <a href="#" class="author">Jessica Browen</a>
-                                                    </div>
-                                                    <div class="entry-action">
-                                                        <a href="#" class="button entry-comment btn-small"><i class="soap-icon-comment"></i><span>30 Comments</span></a>
-                                                        <a href="#" class="button btn-small"><i class="soap-icon-wishlist"></i><span>22 Likes</span></a>
-                                                        <span class="entry-tags"><i class="soap-icon-features"></i><span><a href="#">Adventure</a>, <a href="#">Romance</a></span></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="post">
-                                        <div class="post-content-wrapper">
-                                            <div class="flexslider photo-gallery style3">
-                                                <ul class="slides">
-                                                    <li><a href="travel_tips_read.php"><img src="http://placehold.it/870x342" alt=""></a></li>
-                                                    <li><a href="travel_tips_read.php"><img src="http://placehold.it/870x342" alt=""></a></li>
-                                                    <li><a href="travel_tips_read.php"><img src="http://placehold.it/870x342" alt=""></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="details">
-                                                <h2 class="entry-title"><a href="travel_tips_read.php">Slideshow post with slider</a></h2>
-                                                <div class="excerpt-container">
-                                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's stand dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a neque a tortor tempor in porta sem vulputate. Donec varius felis fermentum nis type specimen book. It has survived not only five centuries.</p>
-                                                </div>
-                                                <div class="post-meta">
-                                                    <div class="entry-date">
-                                                        <label class="date">29</label>
-                                                        <label class="month">Aug</label>
-                                                    </div>
-                                                    <div class="entry-author fn">
-                                                        <i class="icon soap-icon-user"></i> Posted By:
-                                                        <a href="#" class="author">Jessica Browen</a>
-                                                    </div>
-                                                    <div class="entry-action">
-                                                        <a href="#" class="button entry-comment btn-small"><i class="soap-icon-comment"></i><span>30 Comments</span></a>
-                                                        <a href="#" class="button btn-small"><i class="soap-icon-wishlist"></i><span>22 Likes</span></a>
-                                                        <span class="entry-tags"><i class="soap-icon-features"></i><span><a href="#">Adventure</a>, <a href="#">Romance</a></span></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="post">
-                                        <div class="post-content-wrapper">
-                                            <div class="video-container">
-                                                <div class="full-video">
-                                                    <iframe src="http://www.youtube.com/embed/mcixldqDIEQ?wmode=transparent" allowfullscreen></iframe>
-                                                </div>
-                                            </div>
-                                            <div class="details">
-                                                <h2 class="entry-title"><a href="travel_tips_read.php">Travelo 1 minute video post</a></h2>
-                                                <div class="excerpt-container">
-                                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's stand dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a neque a tortor tempor in porta sem vulputate. Donec varius felis fermentum nis type specimen book. It has survived not only five centuries.</p>
-                                                </div>
-                                                <div class="post-meta">
-                                                    <div class="entry-date">
-                                                        <label class="date">29</label>
-                                                        <label class="month">Aug</label>
-                                                    </div>
-                                                    <div class="entry-author fn">
-                                                        <i class="icon soap-icon-user"></i> Posted By:
-                                                        <a href="#" class="author">Jessica Browen</a>
-                                                    </div>
-                                                    <div class="entry-action">
-                                                        <a href="#" class="button entry-comment btn-small"><i class="soap-icon-comment"></i><span>30 Comments</span></a>
-                                                        <a href="#" class="button btn-small"><i class="soap-icon-wishlist"></i><span>22 Likes</span></a>
-                                                        <span class="entry-tags"><i class="soap-icon-features"></i><span><a href="#">Adventure</a>, <a href="#">Romance</a></span></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="post">
-                                        <div class="post-content-wrapper">
-                                            <div class="flexslider photo-gallery style1" id="post-slideshow1" data-sync="#post-carousel1">
-                                                <ul class="slides">
-                                                    <li><a href="travel_tips_read.php"><img src="http://placehold.it/870x342" alt=""></a></li>
-                                                    <li><a href="travel_tips_read.php"><img src="http://placehold.it/870x342" alt=""></a></li>
-                                                    <li><a href="travel_tips_read.php"><img src="http://placehold.it/870x342" alt=""></a></li>
-                                                    <li><a href="travel_tips_read.php"><img src="http://placehold.it/870x342" alt=""></a></li>
-                                                    <li><a href="travel_tips_read.php"><img src="http://placehold.it/870x342" alt=""></a></li>
-                                                    <li><a href="travel_tips_read.php"><img src="http://placehold.it/870x342" alt=""></a></li>
-                                                    <li><a href="travel_tips_read.php"><img src="http://placehold.it/870x342" alt=""></a></li>
-                                                    <li><a href="travel_tips_read.php"><img src="http://placehold.it/870x342" alt=""></a></li>
-                                                    <li><a href="travel_tips_read.php"><img src="http://placehold.it/870x342" alt=""></a></li>
-                                                    <li><a href="travel_tips_read.php"><img src="http://placehold.it/870x342" alt=""></a></li>
-                                                    <li><a href="travel_tips_read.php"><img src="http://placehold.it/870x342" alt=""></a></li>
-                                                    <li><a href="travel_tips_read.php"><img src="http://placehold.it/870x342" alt=""></a></li>
-                                                    <li><a href="travel_tips_read.php"><img src="http://placehold.it/870x342" alt=""></a></li>
-                                                    <li><a href="travel_tips_read.php"><img src="http://placehold.it/870x342" alt=""></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="flexslider image-carousel style1" id="post-carousel1"  data-animation="slide" data-item-width="70" data-item-margin="10" data-sync="#post-slideshow1">
-                                                <ul class="slides">
-                                                    <li><img src="http://placehold.it/70x70" alt="" /></li>
-                                                    <li><img src="http://placehold.it/70x70" alt="" /></li>
-                                                    <li><img src="http://placehold.it/70x70" alt="" /></li>
-                                                    <li><img src="http://placehold.it/70x70" alt="" /></li>
-                                                    <li><img src="http://placehold.it/70x70" alt="" /></li>
-                                                    <li><img src="http://placehold.it/70x70" alt="" /></li>
-                                                    <li><img src="http://placehold.it/70x70" alt="" /></li>
-                                                    <li><img src="http://placehold.it/70x70" alt="" /></li>
-                                                    <li><img src="http://placehold.it/70x70" alt="" /></li>
-                                                    <li><img src="http://placehold.it/70x70" alt="" /></li>
-                                                    <li><img src="http://placehold.it/70x70" alt="" /></li>
-                                                    <li><img src="http://placehold.it/70x70" alt="" /></li>
-                                                    <li><img src="http://placehold.it/70x70" alt="" /></li>
-                                                    <li><img src="http://placehold.it/70x70" alt="" /></li>
-                                                </ul>
-                                            </div>
-                                            <div class="details">
-                                                <h2 class="entry-title"><a href="travel_tips_read.php">Gallery post with slider</a></h2>
-                                                <div class="excerpt-container">
-                                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's stand dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a neque a tortor tempor in porta sem vulputate. Donec varius felis fermentum nis type specimen book. It has survived not only five centuries.</p>
-                                                </div>
-                                                <div class="post-meta">
-                                                    <div class="entry-date">
-                                                        <label class="date">29</label>
-                                                        <label class="month">Aug</label>
-                                                    </div>
-                                                    <div class="entry-author fn">
-                                                        <i class="icon soap-icon-user"></i> Posted By:
-                                                        <a href="#" class="author">Jessica Browen</a>
-                                                    </div>
-                                                    <div class="entry-action">
-                                                        <a href="#" class="button entry-comment btn-small"><i class="soap-icon-comment"></i><span>30 Comments</span></a>
-                                                        <a href="#" class="button btn-small"><i class="soap-icon-wishlist"></i><span>22 Likes</span></a>
-                                                        <span class="entry-tags"><i class="soap-icon-features"></i><span><a href="#">Adventure</a>, <a href="#">Romance</a></span></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="post without-featured-item">
-                                        <div class="post-content-wrapper">
-                                            <div class="details">
-                                                <h2 class="entry-title"><a href="travel_tips_read.php">Post without a featured image</a></h2>
-                                                <div class="excerpt-container">
-                                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's stand dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a neque a tortor tempor in porta sem vulputate. Donec varius felis fermentum nis type specimen book. It has survived not only five centuries.</p>
-                                                </div>
-                                                <div class="post-meta">
-                                                    <div class="entry-date">
-                                                        <label class="date">29</label>
-                                                        <label class="month">Aug</label>
-                                                    </div>
-                                                    <div class="entry-author fn">
-                                                        <i class="icon soap-icon-user"></i> Posted By:
-                                                        <a href="#" class="author">Jessica Browen</a>
-                                                    </div>
-                                                    <div class="entry-action">
-                                                        <a href="#" class="button entry-comment btn-small"><i class="soap-icon-comment"></i><span>30 Comments</span></a>
-                                                        <a href="#" class="button btn-small"><i class="soap-icon-wishlist"></i><span>22 Likes</span></a>
-                                                        <span class="entry-tags"><i class="soap-icon-features"></i><span><a href="#">Adventure</a>, <a href="#">Romance</a></span></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="post">
-                                        <div class="post-content-wrapper">
-                                            <div class="flexslider photo-gallery style4">
-                                                <ul class="slides">
-                                                    <li><a href="travel_tips_read.php"><img src="http://placehold.it/870x342" alt=""></a></li>
-                                                    <li><a href="travel_tips_read.php"><img src="http://placehold.it/870x342" alt=""></a></li>
-                                                    <li><a href="travel_tips_read.php"><img src="http://placehold.it/870x342" alt=""></a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="details">
-                                                <h2 class="entry-title"><a href="travel_tips_read.php">Slideshow post without slider</a></h2>
-                                                <div class="excerpt-container">
-                                                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's stand dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a neque a tortor tempor in porta sem vulputate. Donec varius felis fermentum nis type specimen book. It has survived not only five centuries.</p>
-                                                </div>
-                                                <div class="post-meta">
-                                                    <div class="entry-date">
-                                                        <label class="date">29</label>
-                                                        <label class="month">Aug</label>
-                                                    </div>
-                                                    <div class="entry-author fn">
-                                                        <i class="icon soap-icon-user"></i> Posted By:
-                                                        <a href="#" class="author">Jessica Browen</a>
-                                                    </div>
-                                                    <div class="entry-action">
-                                                        <a href="#" class="button entry-comment btn-small"><i class="soap-icon-comment"></i><span>30 Comments</span></a>
-                                                        <a href="#" class="button btn-small"><i class="soap-icon-wishlist"></i><span>22 Likes</span></a>
-                                                        <span class="entry-tags"><i class="soap-icon-features"></i><span><a href="#">Adventure</a>, <a href="#">Romance</a></span></span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
+									<?php
+										$tips = "SELECT t.id AS id,t.created AS created,t.tags AS tags,t.title AS title,t.content AS content,t.likes AS likes,t.views AS views,t.post_type AS post_type,tc.name AS category,u.username AS author,up.picture AS picture FROM frtg_tips t LEFT JOIN frtg_tips_category tc ON tc.id = t.category_id LEFT JOIN frtg_user u ON u.id = t.user_id LEFT JOIN frtg_user_profile up ON up.user_id = u.id WHERE t.flag = 2 ORDER BY t.created DESC LIMIT 5";
+										$result = $mysqli->query($tips);
+										while($tip = $result->fetch_array(MYSQLI_ASSOC)){
+											if($tip['post_type'] == 1){
+												$timages = fetch_db('frtg_tips_image','WHERE tips_id = '.$tip['id']);
+												foreach($timages as $timage){
+													$post_image = $timage['images'];
+													$alt = $timage['alt'];
+													$title = $timage['title'];
+												}
+												$short_description = explode('</p>',$tip['content']);
+												echo '
+													<div class="post">
+														<div class="post-content-wrapper">
+															<figure class="image-container">
+																<a href="travel_tips_read.php"><img src="'.$post_image.'" alt="'.$title.'" title="'.$alt.'" /></a>
+															</figure>
+															<div class="details">
+																<h2 class="entry-title"><a href="travel_tips_read.php">'.$tip['title'].'</a></h2>
+																<div class="excerpt-container">
+																	'.$short_description[0].'
+																</div>
+																<div class="post-meta">
+																	<div class="entry-date">
+																		<label class="date">'.date('d',$tip['created']).'</label>
+																		<label class="month">'.date('M',$tip['created']).'</label>
+																		<label class="year">'.date('Y',$tip['created']).'</label>
+																	</div>
+																	<div class="entry-author fn">
+																		Author:<br/>
+																		<img src="'.$tip['picture'].'" class="tips_profile_picture_thumb img-responsive">
+																		<a href="#" class="author">'.$tip['author'].'</a>
+																	</div>
+																	<div class="entry-action">
+																		<a href="#" class="button entry-comment btn-small"><i class="soap-icon-comment"></i><span>30 Comments</span></a>
+																		<a href="#" class="button btn-small"><i class="soap-icon-binoculars"></i><span>'.$tip['views'].' Views</span></a>
+																		<a href="#" class="button btn-small"><i class="soap-icon-wishlist"></i><span>'.$tip['likes'].' Likes</span></a>
+																		<span class="entry-tags"><i class="soap-icon-features"></i><span><a href="#">'.$tip['category'].'</a></span></span>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												';
+											}
+											else if($tip['post_type'] == 2){
+												$short_description = explode('</p>',$tip['content']);
+												echo '
+													<div class="post">
+														<div class="post-content-wrapper">
+															<div class="flexslider photo-gallery style3">
+																<ul class="slides">
+												';
+												$timages = fetch_db('frtg_tips_image','WHERE tips_id = '.$tip['id']);
+												foreach($timages as $timage){
+													echo '
+														<li><a href="travel_tips_read.php"><img src="'.$timage['images'].'" alt="'.$timage['alt'].'" title="'.$timage['title'].'"></a></li>
+													';
+												}
+												echo '
+																</ul>
+															</div>
+															<div class="details">
+																<h2 class="entry-title"><a href="travel_tips_read.php">'.$tip['title'].'</a></h2>
+																<div class="excerpt-container">
+																	'.$short_description[0].'
+																</div>
+																<div class="post-meta">
+																	<div class="entry-date">
+																		<label class="date">'.date('d',$tip['created']).'</label>
+																		<label class="month">'.date('M',$tip['created']).'</label>
+																		<label class="year">'.date('Y',$tip['created']).'</label>
+																	</div>
+																	<div class="entry-author fn">
+																		Author:<br/>
+																		<img src="'.$tip['picture'].'" class="tips_profile_picture_thumb img-responsive">
+																		<a href="#" class="author">'.$tip['author'].'</a>
+																	</div>
+																	<div class="entry-action">
+																		<a href="#" class="button entry-comment btn-small"><i class="soap-icon-comment"></i><span>30 Comments</span></a>
+																		<a href="#" class="button btn-small"><i class="soap-icon-binoculars"></i><span>'.$tip['views'].' Views</span></a>
+																		<a href="#" class="button btn-small"><i class="soap-icon-wishlist"></i><span>'.$tip['likes'].' Likes</span></a>
+																		<span class="entry-tags"><i class="soap-icon-features"></i><span><a href="#">'.$tip['category'].'</a></span></span>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												';
+											}
+											else if($tip['post_type'] == 3){
+												$timages = fetch_db('frtg_tips_image','WHERE tips_id = '.$tip['id']);
+												foreach($timages as $timage){
+													$post_image = $timage['images'];
+												}
+												$short_description = explode('</p>',$tip['content']);
+												echo '
+													<div class="post">
+														<div class="post-content-wrapper">
+															<div class="video-container">
+																<div class="full-video">
+																	'.$timage['images'].'
+																</div>
+															</div>
+															<div class="details">
+																<h2 class="entry-title"><a href="travel_tips_read.php">'.$tip['title'].'</a></h2>
+																<div class="excerpt-container">
+																	'.$short_description[0].'
+																</div>
+																<div class="post-meta">
+																	<div class="entry-date">
+																		<label class="date">'.date('d',$tip['created']).'</label>
+																		<label class="month">'.date('M',$tip['created']).'</label>
+																		<label class="year">'.date('Y',$tip['created']).'</label>
+																	</div>
+																	<div class="entry-author fn">
+																		Author:<br/>
+																		<img src="'.$tip['picture'].'" class="tips_profile_picture_thumb img-responsive">
+																		<a href="#" class="author">'.$tip['author'].'</a>
+																	</div>
+																	<div class="entry-action">
+																		<a href="#" class="button entry-comment btn-small"><i class="soap-icon-comment"></i><span>30 Comments</span></a>
+																		<a href="#" class="button btn-small"><i class="soap-icon-binoculars"></i><span>'.$tip['views'].' Views</span></a>
+																		<a href="#" class="button btn-small"><i class="soap-icon-wishlist"></i><span>'.$tip['likes'].' Likes</span></a>
+																		<span class="entry-tags"><i class="soap-icon-features"></i><span><a href="#">'.$tip['category'].'</a></span></span>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												';
+											}
+											else if($tip['post_type'] == 4){
+												$short_description = explode('</p>',$tip['content']);
+												echo '
+													<div class="post">
+														<div class="post-content-wrapper">
+															<div class="flexslider photo-gallery style1" id="post-slideshow1" data-sync="#post-carousel1">
+																<ul class="slides">
+												';
+												$timages = fetch_db('frtg_tips_image','WHERE tips_id = '.$tip['id']);
+												foreach($timages as $timage){
+													echo '
+														<li><a href="travel_tips_read.php"><img src="'.$timage['images'].'" alt="'.$timage['alt'].'" title="'.$timage['title'].'"></a></li>
+													';
+												}
+												echo '
+																</ul>
+															</div>
+															<div class="flexslider image-carousel style1" id="post-carousel1"  data-animation="slide" data-item-width="70" data-item-margin="10" data-sync="#post-slideshow1">
+																<ul class="slides">
+												';
+												$timages = fetch_db('frtg_tips_image','WHERE tips_id = '.$tip['id']);
+												foreach($timages as $timage){
+													echo '
+														<li><img src="'.autoThumb($timage['images'],'_70x70').'" alt="'.$timage['alt'].'" title="'.$timage['title'].'"/></li>
+													';
+												}
+												echo '
+																</ul>
+															</div>
+															<div class="details">
+																<h2 class="entry-title"><a href="travel_tips_read.php">'.$tip['title'].'</a></h2>
+																<div class="excerpt-container">
+																	'.$short_description[0].'
+																</div>
+																<div class="post-meta">
+																	<div class="entry-date">
+																		<label class="date">'.date('d',$tip['created']).'</label>
+																		<label class="month">'.date('M',$tip['created']).'</label>
+																		<label class="year">'.date('Y',$tip['created']).'</label>
+																	</div>
+																	<div class="entry-author fn">
+																		Author:<br/>
+																		<img src="'.$tip['picture'].'" class="tips_profile_picture_thumb img-responsive">
+																		<a href="#" class="author">'.$tip['author'].'</a>
+																	</div>
+																	<div class="entry-action">
+																		<a href="#" class="button entry-comment btn-small"><i class="soap-icon-comment"></i><span>30 Comments</span></a>
+																		<a href="#" class="button btn-small"><i class="soap-icon-binoculars"></i><span>'.$tip['views'].' Views</span></a>
+																		<a href="#" class="button btn-small"><i class="soap-icon-wishlist"></i><span>'.$tip['likes'].' Likes</span></a>
+																		<span class="entry-tags"><i class="soap-icon-features"></i><span><a href="#">'.$tip['category'].'</a></span></span>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												';
+											}
+											else if($tip['post_type'] == 5){
+												$short_description = explode('</p>',$tip['content']);
+												echo '
+													<div class="post without-featured-item">
+														<div class="post-content-wrapper">
+															<div class="details">
+																<br/><br/><br/>
+																<h2 class="entry-title"><a href="travel_tips_read.php">'.$tip['title'].'</a></h2>
+																<div class="excerpt-container">
+																	'.$short_description[0].'
+																</div>
+																<div class="post-meta">
+																	<div class="entry-date">
+																		<label class="date">'.date('d',$tip['created']).'</label>
+																		<label class="month">'.date('M',$tip['created']).'</label>
+																		<label class="year">'.date('Y',$tip['created']).'</label>
+																	</div>
+																	<div class="entry-author fn">
+																		Author:<br/>
+																		<img src="'.$tip['picture'].'" class="tips_profile_picture_thumb img-responsive">
+																		<a href="#" class="author">'.$tip['author'].'</a>
+																	</div>
+																	<div class="entry-action">
+																		<a href="#" class="button entry-comment btn-small"><i class="soap-icon-comment"></i><span>30 Comments</span></a>
+																		<a href="#" class="button btn-small"><i class="soap-icon-binoculars"></i><span>'.$tip['views'].' Views</span></a>
+																		<a href="#" class="button btn-small"><i class="soap-icon-wishlist"></i><span>'.$tip['likes'].' Likes</span></a>
+																		<span class="entry-tags"><i class="soap-icon-features"></i><span><a href="#">'.$tip['category'].'</a></span></span>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												';
+											}
+											else if($tip['post_type'] == 6){
+												$short_description = explode('</p>',$tip['content']);
+												echo '
+													<div class="post">
+														<div class="post-content-wrapper">
+															<div class="flexslider photo-gallery style4">
+																<ul class="slides">
+												';
+												$timages = fetch_db('frtg_tips_image','WHERE tips_id = '.$tip['id']);
+												foreach($timages as $timage){
+													echo '
+														<li><a href="travel_tips_read.php"><img src="'.$timage['images'].'" alt="'.$timage['alt'].'" title="'.$timage['title'].'"></a></li>
+													';
+												}
+												echo '
+																</ul>
+															</div>
+															<div class="details">
+																<h2 class="entry-title"><a href="travel_tips_read.php">'.$tip['title'].'</a></h2>
+																<div class="excerpt-container">
+																	'.$short_description[0].'
+																</div>
+																<div class="post-meta">
+																	<div class="entry-date">
+																		<label class="date">'.date('d',$tip['created']).'</label>
+																		<label class="month">'.date('M',$tip['created']).'</label>
+																		<label class="year">'.date('Y',$tip['created']).'</label>
+																	</div>
+																	<div class="entry-author fn">
+																		Author:<br/>
+																		<img src="'.$tip['picture'].'" class="tips_profile_picture_thumb img-responsive">
+																		<a href="#" class="author">'.$tip['author'].'</a>
+																	</div>
+																	<div class="entry-action">
+																		<a href="#" class="button entry-comment btn-small"><i class="soap-icon-comment"></i><span>30 Comments</span></a>
+																		<a href="#" class="button btn-small"><i class="soap-icon-binoculars"></i><span>'.$tip['views'].' Views</span></a>
+																		<a href="#" class="button btn-small"><i class="soap-icon-wishlist"></i><span>'.$tip['likes'].' Likes</span></a>
+																		<span class="entry-tags"><i class="soap-icon-features"></i><span><a href="#">'.$tip['category'].'</a></span></span>
+																	</div>
+																</div>
+															</div>
+														</div>
+													</div>
+												';
+											}
+											$tips_id = $tip['id'];
+										}
+									?>
                                 </div>
-                                <a href="#" class="button btn-large full-width uppercase">More Tips</a>
+                                <a class="button btn-large full-width uppercase more_tips" id="<?php echo $tips_id; ?>">More Tips</a>
                             </div>
                         </div>
                     </div>
@@ -338,18 +402,17 @@
 						<div class="travelo-box filters-container">
                             <h4 class="box-title">Categories</h4>
                             <ul class="check-square categories-filter filters-option">
-                                <li><a href="#">All</a></li>
 								<?php
 									$categories = fetch_db('frtg_tips_category','ORDER BY name ASC');
 									foreach($categories as $category){
 										$post_count = count_rows('frtg_tips','WHERE category_id = '.$category['id']);
 										echo '
-											<li><a href="">'.$category['name'].'<small>('.$post_count.')</small></a></li>
+											<li id="'.$category['id'].'"><a href="">'.$category['name'].'<small>('.$post_count.')</small></a></li>
 										';
 									}
 								?>
                             </ul>
-                            <a class="button btn-mini uppercase">Search</a>
+                            <a class="button btn-small uppercase">Search</a>
                         </div>
                     </div>
                 </div>
@@ -386,7 +449,71 @@
     <!-- load page Javascript -->
     <script type="text/javascript" src="js/theme-scripts.js"></script>
     <script type="text/javascript" src="js/scripts.js"></script>
-    
+	
+	<!-- LOAD MORE SCRIPT -->
+	<script type="text/javascript">
+		jQuery(function() {
+			// Load More Button
+			jQuery('a.more_tips').live("click",function() 
+			{
+				var ID = jQuery(this).attr("id");
+				
+				jQuery("#"+ID).html('<img src="images/moreajax.gif" />');
+				
+				jQuery.ajax({
+					url: "ajax/ajax.php",
+					type: "POST",
+					data: {
+						mod: "travel_tips",
+						last_id: ID,
+					},
+					dataType: "JSON",
+					cache: false,
+					success: function(data){
+						if(data.status == "success"){
+							jQuery("div.blog-infinite").append(data.data);
+							jQuery("a.more_tips").html(data.button);
+						}
+						else{
+							jQuery("a.more_tips").replaceWith(data.button);
+						}
+					}
+				});
+				
+				return false;
+			});
+			
+			// Multiple Category Selection
+			jQuery("ul.check-square > li").live("click",function(){
+				jQuery.getScript("js/scripts.js");
+				var category = "";
+				jQuery("ul.check-square > li.active").each(function(){
+					category += jQuery(this).attr('id')+",";
+				});
+				jQuery.ajax({
+					url: "ajax/ajax.php",
+					type: "POST",
+					data: {
+						mod: "multiple_category_selection",
+						category: category,
+					},
+					dataType: "JSON",
+					cache: false,
+					success: function(data){
+						if(data.status == "success"){
+							jQuery("div.blog-infinite").html(data.data);
+							jQuery("a.more_tips").replaceWith(data.button);
+						}
+						else{
+							jQuery("div.blog-infinite").html(data.data);
+							jQuery("a.more_tips").replaceWith(data.button);
+						}
+					}
+				});
+			});
+		});
+		
+	</script>
 </body>
 </html>
 
