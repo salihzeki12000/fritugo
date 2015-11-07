@@ -17,24 +17,17 @@
 						<li class="googleplus"><a title="googleplus" href="#" data-toggle="tooltip"><i class="soap-icon-googleplus"></i></a></li>
 						<li class="facebook"><a title="facebook" href="#" data-toggle="tooltip"><i class="soap-icon-facebook"></i></a></li>
 						<li class="linkedin"><a title="linkedin" href="#" data-toggle="tooltip"><i class="soap-icon-linkedin"></i></a></li>
-						<li class="vimeo"><a title="vimeo" href="#" data-toggle="tooltip"><i class="soap-icon-vimeo"></i></a></li>
-						<li class="dribble"><a title="dribble" href="#" data-toggle="tooltip"><i class="soap-icon-dribble"></i></a></li>
-						<li class="flickr"><a title="flickr" href="#" data-toggle="tooltip"><i class="soap-icon-flickr"></i></a></li>
 					</ul>
 				</div>
 				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
 					<h2 class="uppercase font-11">Discover</h2>
 					<ul class="discover triangle hover row">
 						<li class="col-xs-6"><a href="aboutus.php">About Us</a></li>
-						<li class="col-xs-6"><a href="aboutus.php">How It Works</a></li>
-						<li class="col-xs-6"><a href="#">Our Team</a></li>
-						<li class="col-xs-6"><a href="#">Travel Tips</a></li>
-						<li class="col-xs-6"><a href="#">Security</a></li>
-						<li class="col-xs-6"><a href="#">Contact</a></li>
-						<li class="col-xs-6"><a href="#">FAQ</a></li>
-						<li class="col-xs-6"><a href="#">Privacy Policy</a></li>
-						<li class="col-xs-6"><a href="#">Terms of Use</a></li>
-						<li class="col-xs-6"><a href="#">Site Map</a></li>
+						<li class="col-xs-6"><a href="travel_tips.php">Travel Tips</a></li>
+						<li class="col-xs-6"><a href="contact.php">Contact</a></li>
+						<li class="col-xs-6"><a href="faq.php">FAQ</a></li>
+						<li class="col-xs-6"><a href="policies.php">Policies</a></li>
+						<li class="col-xs-6"><a href="sitemap.php">Site Map</a></li>
 					</ul>
 				</div>
 				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
@@ -69,22 +62,24 @@
 				<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
 					<h2 class="uppercase font-11">Powered By</h2>
 					<ul class="travel-news">
-						<li>
-							<div class="powered-by-thumb thumb">
-								<img src="images/TripAdvisor-logo.png" alt="" class="img-responsive" />
-							</div>
-							<div class="powered-by-thumb thumb">
-								<img src="images/zomato-logo.png" alt="" class="img-responsive" />
-							</div>
-						</li>
-						<li>
-							<div class="powered-by-thumb thumb">
-								<img src="images/expedia-logo.png" alt="" class="img-responsive" />
-							</div>
-							<div class="powered-by-thumb thumb">
-								<img src="images/google-logo.png" alt="" class="img-responsive" />
-							</div>
-						</li>
+						<?php
+							$cf = 0;
+							$powered = fetch_db('frtg_powered','ORDER BY name ASC');
+							foreach($powered as $power){
+								if($cf % 2 == 0 || $cf == 0)
+									echo '<li>';
+								
+								echo '
+									<div class="powered-by-thumb thumb">
+										<img src="'.$power['image'].'" alt="" class="img-responsive" />
+									</div>
+								';
+								
+								if($cf % 2 != 0 || $cf == 1)
+									echo '</li>';
+								$cf++;
+							}
+						?>
 					</ul>
 				</div>
 			</div>

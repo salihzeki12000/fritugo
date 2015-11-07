@@ -1,3 +1,8 @@
+<?php
+	session_start();
+	include "library/connect.php";
+	include "library/function.lib.php";
+?>
 <!DOCTYPE html>
 <!--[if IE 8]>          <html class="ie ie8"> <![endif]-->
 <!--[if IE 9]>          <html class="ie ie9"> <![endif]-->
@@ -20,10 +25,6 @@
 	<link href='http://fonts.googleapis.com/css?family=Lato:300,400,500,700' rel='stylesheet' type='text/css'>
 	<link rel="stylesheet" href="css/animate.min.css">
 	
-	<!-- Current Page Styles -->
-	<link rel="stylesheet" type="text/css" href="components/jquery.bxslider/jquery.bxslider.css" media="screen" />
-	<link rel="stylesheet" type="text/css" href="components/flexslider/flexslider.css" media="screen" />
-	
 	<!-- Main Style -->
 	<link id="main-style" rel="stylesheet" href="css/style.css">
 	
@@ -40,7 +41,6 @@
 	<!--[if lte IE 9]>
 		<link rel="stylesheet" type="text/css" href="css/ie.css" />
 	<![endif]-->
-	
 	
 	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!--[if lt IE 9]>
@@ -89,7 +89,7 @@
 									<div class="form-group row">
 										<div class="col-sm-6 col-md-6">
 											<label>Destination</label>
-											<input type="text" class="input-text full-width" placeholder="Osaka, Japan" value="" />
+											<input type="text" class="input-text full-width" placeholder="Osaka, Japan" value="" id="destination" />
 										</div>
 										<div class="col-sm-6 col-md-6">
 											<label>Budget</label>
@@ -403,19 +403,15 @@
 	<!-- Twitter Bootstrap -->
 	<script type="text/javascript" src="js/bootstrap.js"></script>
 	
-	<!-- load revolution slider scripts -->
-	<script type="text/javascript" src="components/revolution_slider/js/jquery.themepunch.plugins.min.js"></script>
-	<script type="text/javascript" src="components/revolution_slider/js/jquery.themepunch.revolution.min.js"></script>
-	
-	<!-- load BXSlider scripts -->
-	<script type="text/javascript" src="components/jquery.bxslider/jquery.bxslider.min.js"></script>
-	
-	<!-- load FlexSlider scripts -->
-	<script type="text/javascript" src="components/flexslider/jquery.flexslider-min.js"></script>
-	
-	<!-- Google Map Api -->
-	<script type='text/javascript' src="http://maps.google.com/maps/api/js?sensor=false&amp;language=en"></script>
-	<script type="text/javascript" src="js/gmap3.min.js"></script>
+	<!-- Google Places Autocomplete API -->
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFq_BipqZO85dGFOpGXlEDG5Mci1uHiXA&libraries=places"></script>
+	<script type="text/javascript">
+		function initialize() {
+			var input = document.getElementById('destination');
+			var autocomplete = new google.maps.places.Autocomplete(input);
+		}
+		google.maps.event.addDomListener(window, 'load', initialize);
+	</script>
 	
 	<script type="text/javascript" src="js/calendar.js"></script>
 	
@@ -457,6 +453,9 @@
 			tjq(".min-price-label").html( "IDR " + addCommas(tjq("#price-range").slider( "values", 0 )));
 			tjq(".max-price-label").html( "IDR " + addCommas(tjq("#price-range").slider( "values", 1 )));
 		});
+	</script>
+	<script type="text/javascript">
+		<?php include "include/login_register_warning_checker.php"; ?>
 	</script>
 </body>
 </html>

@@ -5,7 +5,7 @@ if(isset ($_REQUEST['submit']))
 	{
 		$email = $_REQUEST['email'];
 		$username = $_REQUEST['username'];
-		$password = $_REQUEST['password'];
+		$password =$_REQUEST['password'];
 		$confirmpassword = $_REQUEST['confirmpassword'];
 		$hash =md5($password); 
 		$time = strtotime("now");

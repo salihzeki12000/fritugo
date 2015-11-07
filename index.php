@@ -1,7 +1,9 @@
+<?php
+	session_start();
+	include "library/connect.php";
+	include "library/function.lib.php";
+?>
 <!DOCTYPE html>
-
-<!--albert test github -->
-<!--albert test github part 2 -->
 <!--[if IE 8]> <html class="ie ie8"> <![endif]-->
 <!--[if IE 9]> <html class="ie ie9"> <![endif]-->
 <!--[if gt IE 9]><!--> <html> <!--<![endif]-->
@@ -33,12 +35,12 @@
 		
 		<!-- Responsive Styles -->
 		<link rel="stylesheet" href="css/responsive.css">
+		<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 		
 		<!-- CSS for IE -->
 		<!--[if lte IE 9]>
 			<link rel="stylesheet" type="text/css" href="css/ie.css" />
 		<![endif]-->
-		
 		
 		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 		<!--[if lt IE 9]>
@@ -68,6 +70,7 @@
 							</li>
 						</ul>
 					</div>
+					<div id="map"></div>
 					<div class="container">
 						<div class="table-wrapper full-width">
 							<div class="table-cell">
@@ -76,58 +79,58 @@
 									<h3 class="sub-title">Create a Fully Cuztomised Trip Plan For Free</h3>
 								</div>
 								<div class="search-box">
-									<form>
+									<form method="POST" action="function/actionLogic.php?mod=plan&act=create">
 										<div class="row">
 											<div class="col-sm-6 form-group">
-												<form method="post">
-													<div class="row">
-														<div class="col-xs-12 col-sm-6">
-															<div class="form-group">
-																<label>Start Date</label>
-																<div class="datepicker-wrap" style="z-index:1000;">
-																	<input type="text" name="date_from" class="input-text full-width" placeholder="mm/dd/yy" />
-																</div>
-															</div>
-														</div>
-														<div class="col-xs-12 col-sm-6">
-															<div class="form-group">
-																<label>End Date</label>
-																<div class="datepicker-wrap" style="z-index:1000;">
-																	<input type="text" name="date_from" class="input-text full-width" placeholder="mm/dd/yy" />
-																</div>
+												<div class="row">
+													<div class="col-xs-12 col-sm-6">
+														<div class="form-group">
+															<label>Start Date</label>
+															<div class="datepicker-wrap" style="z-index:1000;">
+																<input type="text" name="start_date" class="input-text full-width" placeholder="dd/mm/yy" id="start_date" />
 															</div>
 														</div>
 													</div>
-													<div class="row">
-														<div class="col-xs-12 col-sm-6">
-															<div class="form-group">
-																<label>Destination</label>
-																<input type="text" class="input-text full-width" placeholder="Osaka, Japan" value="" />
-															</div>
-														</div>
-														<div class="col-xs-12 col-sm-6">
-															<div class="form-group">
-																<label>Budget</label>
-																<div id="price-filter" class="">
-																	<div class="panel-content" style="padding-top:5px; padding-bottom:5px;">
-																		<div id="price-range" style="margin-bottom:5px;"></div>
-																		<span class="min-price-label pull-left"></span>
-																		<span class="max-price-label pull-right"></span>
-																		<div class="clearer"></div>
-																	</div><!-- end content -->
-																</div>
+													<div class="col-xs-12 col-sm-6">
+														<div class="form-group">
+															<label>End Date</label>
+															<div class="datepicker-wrap" style="z-index:1000;">
+																<input type="text" name="end_date" class="input-text full-width" placeholder="dd/mm/yy" id="end_date" />
 															</div>
 														</div>
 													</div>
-													<div class="row">
-														<div class="col-sm-6 form-group">
-															<button class="button btn-medium full-width uppercase sky-blue1">Create Trip</button>
-														</div>
-														<div class="col-sm-6 form-group">
-															<button class="button btn-medium full-width uppercase sky-blue1">View Trip</button>
+												</div>
+												<div class="row">
+													<div class="col-xs-12 col-sm-6">
+														<div class="form-group">
+															<label>Destination</label>
+															<input type="text" class="input-text full-width" placeholder="Osaka, Japan" value="" name="destination" id="destination" />
+															<div id="display"></div>
 														</div>
 													</div>
-												</form>
+													<div class="col-xs-12 col-sm-6">
+														<div class="form-group">
+															<label>Budget</label>
+															<div id="price-filter" class="">
+																<div class="panel-content" style="padding-top:5px; padding-bottom:5px;">
+																	<div id="price-range" style="margin-bottom:5px;"></div>
+																	<span class="max-price-label pull-right" id="budget" name="budget"></span>
+																	<div class="clearer"></div>
+																</div><!-- end content -->
+															</div>
+														</div>
+													</div>
+												</div>
+												<div class="row choose_province" id="province_box" style="display:none;">
+													<div class="col-xs-12 col-sm-12" id="province_container">
+														
+													</div>
+												</div>
+												<div class="row">
+													<div class="col-sm-12 form-group">
+														<button class="button btn-medium full-width uppercase sky-blue1">Create Trip</button>
+													</div>
+												</div>
 											</div>
 										</div>
 									</form>
@@ -329,96 +332,32 @@
 				</div>
 				<div class="section">
 					<div class="container">
-						<h1 class="uppercase">Travel Guide and Tips</h1>
-						<div class="tour-guide image-carousel style2 flexslider animated" data-animation="slide" data-item-width="270" data-item-margin="30" data-animation-type="fadeInUp">
+						<a href="travel_tips.php"><h1 class="uppercase">Travel Guide and Tips</h1></a>
+						<div class="tour-guide image-carousel style2 flexslider" data-animation="slide" data-item-width="270" data-item-margin="30" data-animation-type="fadeInUp">
 							<ul class="slides image-box">
-								<li>
-									<article class="box">
+								<?php
+									$tips = fetch_db('frtg_tips_category','ORDER BY views DESC');
+									foreach($tips as $tip){
+										echo '
+										<li>
+										<article class="box">
 										<figure>
-											<img src="images/travel-guide/thumb/baggage-information-thumb.jpg" alt="">
+										<img src="'.$tip['image'].'" alt="'.$tip['name'].'">
 										</figure>
 										<div class="details guide-tips">
-											<h4 class="white uppercase tips-title">Baggage Information</h4>
+										<h4 class="white uppercase tips-title">'.$tip['name'].'</h4>
 										</div>
-									</article>
-								</li>
-								<li>
-									<article class="box">
-										<figure>
-											<img src="images/travel-guide/thumb/airport-check-in-thumb.jpg" alt="">
-										</figure>
-										<div class="details guide-tips">
-											<h4 class="white uppercase tips-title">Airport Check-in</h4>
-										</div>
-									</article>
-								</li>
-								<li>
-									<article class="box">
-										<figure>
-											<img src="images/travel-guide/thumb/travelling-with-kids-thumb.jpg" alt="">
-										</figure>
-										<div class="details guide-tips">
-											<h4 class="white uppercase tips-title">Traveling with Kids</h4>
-										</div>
-									</article>
-								</li>
-								<li>
-									<article class="box">
-										<figure>
-											<img src="images/travel-guide/thumb/special-assistance-thumb.jpg" alt="">
-										</figure>
-										<div class="details guide-tips">
-											<h4 class="white uppercase tips-title">Special Assistance</h4>
-										</div>
-									</article>
-								</li>
+										</article>
+										</li>
+										';
+									}
+								?>
 							</ul>
 						</div>
 					</div>
 				</div>
-				<!--<div class="section white-bg">
-					<div class="container">
-					<div class="row">
-					<div class="col-sm-6 col-md-3">
-					<div class="icon-box style3 counters-box">
-					<div class="numbers">
-					<i class="soap-icon-places select-color"></i>
-					<span class="display-counter" data-value="3200">0</span>
-					</div>
-					<div class="description">Amazing Places To Visit</div>
-					</div>
-					</div>
-					<div class="col-sm-6 col-md-3">
-					<div class="icon-box style3 counters-box">
-					<div class="numbers">
-					<i class="soap-icon-hotel skin-color"></i>
-					<span class="display-counter" data-value="5738">0</span>
-					</div>
-					<div class="description">5 Star Hotels To Stay</div>
-					</div>
-					</div>
-					<div class="col-sm-6 col-md-3">
-					<div class="icon-box style3 counters-box">
-					<div class="numbers">
-					<i class="soap-icon-plane green-color"></i>
-					<span class="display-counter" data-value="4509">0</span>
-					</div>
-					<div class="description">Airlines To Travel the World</div>
-					</div>
-					</div>
-					<div class="col-sm-6 col-md-3">
-					<div class="icon-box style3 counters-box">
-					<div class="numbers">
-					<i class="soap-icon-car red-color"></i>
-					<span class="display-counter" data-value="3250">0</span>
-					</div>
-					<div class="description">VIP Transport Options</div>
-					</div>
-					</div>
-					</div>
-					</div>
-				</div>-->
 			</section>
+			<div id="map"></div>
 			
 			<?php include "include/footer.php"; ?>
 			
@@ -426,12 +365,12 @@
 		
 		
 		<!-- Javascript -->
-		<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+		<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 		<script type="text/javascript" src="js/jquery.noconflict.js"></script>
 		<script type="text/javascript" src="js/modernizr.2.7.1.min.js"></script>
 		<script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
 		<script type="text/javascript" src="js/jquery.placeholder.js"></script>
-		<script type="text/javascript" src="js/jquery-ui.1.10.4.min.js"></script>
+		<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 		
 		<!-- Twitter Bootstrap -->
 		<script type="text/javascript" src="js/bootstrap.js"></script>
@@ -473,20 +412,80 @@
 			}
 			
 			tjq(document).ready(function() {
+				// BUDGET SLIDER
 				tjq("#price-range").slider({
-					range: true,
+					range: "min",
 					min: 250000,
-					max: 20000000,
+					max: 25000000,
 					step: 250000,
-					values: [ 1000000, 5000000 ],
+					value: 5000000,
 					slide: function( event, ui ) {
-						tjq(".min-price-label").html( "IDR " + addCommas(ui.values[ 0 ]));
-						tjq(".max-price-label").html( "IDR " + addCommas(ui.values[ 1 ]));
+						tjq(".max-price-label").html( "IDR " + addCommas(ui.value));
+						tjq( "#price-range" ).val( ui.value );
 					}
 				});
-				tjq(".min-price-label").html( "IDR " + addCommas(tjq("#price-range").slider( "values", 0 )));
-				tjq(".max-price-label").html( "IDR " + addCommas(tjq("#price-range").slider( "values", 1 )));
+				tjq(".max-price-label").html( "IDR " + addCommas(tjq("#price-range").slider( "value" )));
+				
+				// AUTOCOMPLETE
+				tjq("#destination").keyup(function() {
+					tjq( "#destination" ).autocomplete({
+						source: function( request, response ) {
+							tjq.ajax({
+								url: "ajax/ajax.php",
+								type:"POST",
+								dataType: "json",
+								data: {
+									mod:"autocomplete",
+									searchdata: request.term
+								},
+								success: function( data ) {
+									response(data);
+								}
+							});
+						},
+						minLength: 0,
+						select: function( event, ui ) {
+							tjq('#destination').val(ui.item.abbrev);
+							
+							// CHECK DESTINATION IS IT CITY / PROVINCE / COUNTRY
+							String.prototype.count=function(s1) { 
+								return (this.length - this.replace(new RegExp(s1,"g"), '').length) / s1.length;
+							}
+							var commas = ui.item.value.count(',');
+							if(commas == 0){
+								tjq("#province_box").fadeIn(1500);
+								
+								tjq.ajax({
+									url:"ajax/ajax.php",
+									type:"POST",
+									dataType:"JSON",
+									data:{
+										mod:"get_province",
+										country:ui.item.abbrev,
+									},
+									success: function(data){
+										tjq("#province_container").html(data.data);
+									},
+								});
+							}
+							else{
+								tjq("#province_container").html();
+								tjq("#province_box").fadeOut(1000);
+							}
+						},
+						open: function() {
+							tjq( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
+						},
+						close: function() {
+							tjq( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
+						}
+					});
+				});
 			});
+			
+			<?php
+				include "include/login_register_warning_checker.php";
+			?>
 		</script>
 	</body>
-</html>											
+</html>

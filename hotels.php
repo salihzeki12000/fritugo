@@ -1,3 +1,8 @@
+<?php
+	session_start();
+	include "library/connect.php";
+	include "library/function.lib.php";
+?>
 <!DOCTYPE html>
 <!--[if IE 8]>          <html class="ie ie8"> <![endif]-->
 <!--[if IE 9]>          <html class="ie ie9"> <![endif]-->
@@ -449,7 +454,7 @@
 													</div>
 													<span class="review">585 reviews</span>
 												</div>
-											</div>
+												</div>
 											<div>
 												<p>Nunc cursus libero purus ac congue ar lorem cursus ut sed vitae pulvinar massa idend porta nequetiam elerisque mi id, consectetur adipi deese cing elit maus fringilla bibe endum.</p>
 												<div>
@@ -532,6 +537,9 @@
             });
         });
     </script>
+	<script type="text/javascript">
+		<?php include "include/login_register_warning_checker.php"; ?>
+	</script>
 </body>
 </html>
 

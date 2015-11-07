@@ -1,5 +1,9 @@
+<?php
+	session_start();
+	include "library/connect.php";
+	include "library/function.lib.php";
+?>
 <!DOCTYPE html>
-<!--albert test github -->
 <!--[if IE 8]>          <html class="ie ie8"> <![endif]-->
 <!--[if IE 9]>          <html class="ie ie9"> <![endif]-->
 <!--[if gt IE 9]><!-->  <html> <!--<![endif]-->
@@ -65,139 +69,94 @@
             <div class="container">
                 <div id="main">
 					<div class="large-block image-box style6">
-                        <article class="box">
-                            <figure class="col-md-5">
-                                <a href="#" title="" class="middle-block"><img class="middle-item" src="http://placehold.it/476x318" alt="" width="476" height="318" /></a>
-                            </figure>
-                            <div class="details col-md-offset-5">
-                                <h4 class="box-title">Who We Are?</h4>
-                                <p>Vivamus a mauris vel nunc tristique volutpat. Aenean eu faucibus enim. Aenean blandit arcu lectus, in cursus elit porttitor non. Curabitur risus eros, mattis vitae nisl consequat, tincidunt commodo purus. Maecenas eu risus ac risus tempus iaculis. Duis cursus lectus sed dui imperdiet, id pharetra nunc ullamcorper. Donec luctus blandit metus, sed ultrices ipsum facilisis sit amet. Morbi congue ligula sit amet urna tincidunt.</p>
-                            </div>
-                        </article>
-                        <article class="box">
-                            <figure class="col-md-5 pull-right middle-block">
-                                <a href="#" title=""><img class="middle-item" src="http://placehold.it/476x318" alt="" width="476" height="318" /></a>
-                            </figure>
-                            <div class="details col-md-7">
-                                <h4 class="box-title">What We Do?</h4>
-                                <p>Vivamus a mauris vel nunc tristique volutpat. Aenean eu faucibus enim. Aenean blandit arcu lectus, in cursus elit porttitor non. Curabitur risus eros, mattis vitae nisl consequat, tincidunt commodo purus. Maecenas eu risus ac risus tempus iaculis. Duis cursus lectus sed dui imperdiet, id pharetra nunc ullamcorper. Donec luctus blandit metus, sed ultrices ipsum facilisis sit amet. Morbi congue ligula sit amet urna tincidunt.</p>
-                            </div>
-                        </article>
-                        <article class="box">
-                            <figure class="col-md-5">
-                                <a href="#" title="" class="middle-block"><img class="middle-item" src="http://placehold.it/489x489" alt="" /></a>
-                            </figure>
-                            <div class="details col-md-offset-5">
-                                <h4 class="box-title">How Travelo Work?</h4>
-                                <p>Vivamus a mauris vel nunc tristique volutpat. Aenean eu faucibus enim. Aenean blandit arcu lectus, in cursus elit porttitor non. Curabitur risus eros, mattis vitae nisl consequat, tincidunt commodo purus. Maecenas eu risus ac risus tempus iaculis. Duis cursus lectus sed dui imperdiet, id pharetra nunc ullamcorper. Donec luctus blandit metus, sed ultrices ipsum facilisis sit amet. Morbi congue ligula sit amet urna tincidunt.</p>
-                            </div>
-                        </article>
+						<?php
+							$counter = 1;
+							$query = "SELECT a.post_meta,a.description,ai.image FROM frtg_about a LEFT JOIN frtg_about_image ai ON ai.about_id = a.id WHERE a.id = 1 OR a.id = 2 OR a.id = 3";
+							$result = $mysqli->query($query);
+							while($row = $result->fetch_array(MYSQLI_ASSOC)){
+								if($counter != 2){
+									echo '
+										<article class="box">
+											<figure class="col-md-5">
+												<a href="#" title="" class="middle-block"><img class="middle-item" src="'.$row['image'].'" alt="" width="476" height="318" /></a>
+											</figure>
+											<div class="details col-md-offset-5">
+												<h4 class="box-title">'.$row['post_meta'].'</h4>
+												<p>'.$row['description'].'</p>
+											</div>
+										</article>
+									';
+								}
+								else{
+									echo '
+										<article class="box">
+											<figure class="col-md-5 pull-right middle-block">
+												<a href="#" title=""><img class="middle-item" src="'.$row['image'].'" alt="" width="476" height="318" /></a>
+											</figure>
+											<div class="details col-md-7">
+												<h4 class="box-title">'.$row['post_meta'].'</h4>
+												<p>'.$row['description'].'</p>
+											</div>
+										</article>
+									';
+								}
+							$counter++;
+							}
+						?>
                     </div>
 
                     <div class="large-block">
                         <h2>Our Team</h2>
                         <div class="row image-box style1 team">
-                            <div class="col-sm-6 col-md-3">
-                                <article class="box">
-                                    <figure>
-                                        <a href="#"><img src="images/about/270x263.png" alt="" width="270" height="263" /></a>
-                                        <figcaption>
-                                            <ul class="social-icons clearfix">
-                                                <li class="twitter"><a title="twitter" href="#" data-toggle="tooltip"><i class="soap-icon-twitter"></i></a></li>
-                                                <li class="googleplus"><a title="googleplus" href="#" data-toggle="tooltip"><i class="soap-icon-googleplus"></i></a></li>
-                                                <li class="facebook"><a title="facebook" href="#" data-toggle="tooltip"><i class="soap-icon-facebook"></i></a></li>
-                                                <li class="linkedin"><a title="linkedin" href="#" data-toggle="tooltip"><i class="soap-icon-linkedin"></i></a></li>
-                                                <li class="vimeo"><a title="vimeo" href="#" data-toggle="tooltip"><i class="soap-icon-vimeo"></i></a></li>
-                                                <li class="flickr"><a title="flickr" href="#" data-toggle="tooltip"><i class="soap-icon-flickr"></i></a></li>
-                                            </ul>
-                                        </figcaption>
-                                    </figure>
-                                    <div class="details">
-                                        <h4 class="box-title"><a href="#">Bryan Wangsa<small>Marketing</small></a></h4>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="col-sm-6 col-md-3">
-                                <article class="box">
-                                    <figure>
-                                        <a href="#"><img src="images/about/270x263.png" alt="" width="270" height="263" /></a>
-                                        <figcaption>
-                                            <ul class="social-icons clearfix">
-                                                <li class="twitter"><a title="twitter" href="#" data-toggle="tooltip"><i class="soap-icon-twitter"></i></a></li>
-                                                <li class="googleplus"><a title="googleplus" href="#" data-toggle="tooltip"><i class="soap-icon-googleplus"></i></a></li>
-                                                <li class="facebook"><a title="facebook" href="#" data-toggle="tooltip"><i class="soap-icon-facebook"></i></a></li>
-                                                <li class="linkedin"><a title="linkedin" href="#" data-toggle="tooltip"><i class="soap-icon-linkedin"></i></a></li>
-                                                <li class="vimeo"><a title="vimeo" href="#" data-toggle="tooltip"><i class="soap-icon-vimeo"></i></a></li>
-                                                <li class="flickr"><a title="flickr" href="#" data-toggle="tooltip"><i class="soap-icon-flickr"></i></a></li>
-                                            </ul>
-                                        </figcaption>
-                                    </figure>
-                                    <div class="details">
-                                        <h4 class="box-title"><a href="#">Westly Tanbri<small>Lead Developer</small></a></h4>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="col-sm-6 col-md-3">
-                                <article class="box">
-                                    <figure>
-                                        <a href="#"><img src="images/about/270x263.png" alt="" width="270" height="263" /></a>
-                                        <figcaption>
-                                            <ul class="social-icons clearfix">
-                                                <li class="twitter"><a title="twitter" href="#" data-toggle="tooltip"><i class="soap-icon-twitter"></i></a></li>
-                                                <li class="googleplus"><a title="googleplus" href="#" data-toggle="tooltip"><i class="soap-icon-googleplus"></i></a></li>
-                                                <li class="facebook"><a title="facebook" href="#" data-toggle="tooltip"><i class="soap-icon-facebook"></i></a></li>
-                                                <li class="linkedin"><a title="linkedin" href="#" data-toggle="tooltip"><i class="soap-icon-linkedin"></i></a></li>
-                                                <li class="vimeo"><a title="vimeo" href="#" data-toggle="tooltip"><i class="soap-icon-vimeo"></i></a></li>
-                                                <li class="flickr"><a title="flickr" href="#" data-toggle="tooltip"><i class="soap-icon-flickr"></i></a></li>
-                                            </ul>
-                                        </figcaption>
-                                    </figure>
-                                    <div class="details">
-                                        <h4 class="box-title"><a href="#">Albert Irawan<small>Developer</small></a></h4>
-                                    </div>
-                                </article>
-                            </div>
-                            <div class="col-sm-6 col-md-3">
-                                <article class="box">
-                                    <figure>
-                                        <a href="#"><img src="images/about/270x263.png" alt="" width="270" height="263" /></a>
-                                        <figcaption>
-                                            <ul class="social-icons clearfix">
-                                                <li class="twitter"><a title="twitter" href="#" data-toggle="tooltip"><i class="soap-icon-twitter"></i></a></li>
-                                                <li class="googleplus"><a title="googleplus" href="#" data-toggle="tooltip"><i class="soap-icon-googleplus"></i></a></li>
-                                                <li class="facebook"><a title="facebook" href="#" data-toggle="tooltip"><i class="soap-icon-facebook"></i></a></li>
-                                                <li class="linkedin"><a title="linkedin" href="#" data-toggle="tooltip"><i class="soap-icon-linkedin"></i></a></li>
-                                                <li class="vimeo"><a title="vimeo" href="#" data-toggle="tooltip"><i class="soap-icon-vimeo"></i></a></li>
-                                                <li class="flickr"><a title="flickr" href="#" data-toggle="tooltip"><i class="soap-icon-flickr"></i></a></li>
-                                            </ul>
-                                        </figcaption>
-                                    </figure>
-                                    <div class="details">
-                                        <h4 class="box-title"><a href="#">Giovandy Dharmaputra<small>Developer</small></a></h4>
-                                    </div>
-                                </article>
-                            </div>
+							<?php
+								$teams = fetch_db('frtg_team','ORDER BY id ASC');
+								foreach($teams as $team){
+									echo '
+										<div class="col-sm-6 col-md-3">
+											<article class="box">
+												<figure>
+													<a href="#"><img src="'.$team['image'].'" alt="" width="270" height="263" /></a>
+													<figcaption>
+														<ul class="social-icons clearfix">
+									';
+									$socials = fetch_db('frtg_team_social_media','WHERE team_id = '.$team['id']);
+									foreach($socials as $social){
+										echo '
+											<li class="'.$social['name'].'"><a title="'.$social['name'].'" href="'.$social['link'].'" data-toggle="tooltip"><i class="'.$social['icon'].'"></i></a></li>
+										';
+									}
+									echo ' 
+														</ul>
+													</figcaption>
+												</figure>
+												<div class="details">
+													<h4 class="box-title"><a href="#">'.$team['name'].'<small>'.$team['position'].'</small></a></h4>
+												</div>
+											</article>
+										</div>
+									';
+								}
+							?>
                         </div>
                     </div>
 					
 					<div class="image-style style1 large-block">
                         <ul class="image-block column-3 pull-left clearfix">
-                            <li><a href="#" class="middle-block"><img class="middle-item" src="images/about/80x80.png" alt="" /></a></li>
-                            <li><a href="#" class="middle-block"><img class="middle-item" src="images/about/80x80.png" alt="" /></a></li>
-                            <li><a href="#" class="middle-block"><img class="middle-item" src="images/about/80x80.png" alt="" /></a></li>
-                            <li><a href="#" class="middle-block"><img class="middle-item" src="images/about/80x80.png" alt="" /></a></li>
-                            <li><a href="#" class="middle-block"><img class="middle-item" src="images/about/80x80.png" alt="" /></a></li>
-                            <li><a href="#" class="middle-block"><img class="middle-item" src="images/about/80x80.png" alt="" /></a></li>
-                            <li><a href="#" class="middle-block"><img class="middle-item" src="images/about/80x80.png" alt="" /></a></li>
-                            <li><a href="#" class="middle-block"><img class="middle-item" src="images/about/80x80.png" alt="" /></a></li>
-                            <li><a href="#" class="middle-block"><img class="middle-item" src="images/about/80x80.png" alt="" /></a></li>
+							<?php
+								$query = "SELECT a.post_meta,a.description,ai.image FROM frtg_about a LEFT JOIN frtg_about_image ai ON ai.about_id = a.id WHERE a.id = 4";
+								$result = $mysqli->query($query);
+								while($row = $result->fetch_array(MYSQLI_ASSOC)){
+									$btitle = $row['post_meta'];
+									$bcontent = $row['description'];
+									echo '
+										<li><a href="#" class="middle-block"><img class="middle-item" src="'.$row['image'].'" alt="" /></a></li>
+									';
+								}
+							?>
                         </ul>
 
-                        <h1 class="title">We’re truely dedicated to make your travel experience as much simple and fun as possible!</h1>
-                        <p>
-							Bringing you a modern, comfortable, and connected travel experience is one of our highest priorities and that’s why we continuously try to improve your experience when you book anything with us.<br/><br/>
-							We really appreciate and welcome any of suggstions you might have for us, so feel free drop us line anytime.
-						</p>
+                        <h1 class="title"><?php echo $btitle; ?></h1>
+                        <p><?php echo $bcontent; ?></p>
                         <div class="clearfix"></div>
                     </div>
                 </div> <!-- end main -->
@@ -228,7 +187,11 @@
     <!-- load page Javascript -->
     <script type="text/javascript" src="js/theme-scripts.js"></script>
     <script type="text/javascript" src="js/scripts.js"></script>
-    
+    <script type="text/javascript">
+		<?php include "include/login_register_warning_checker.php"; ?>
+	</script>
+
+	
 </body>
 </html>
 

@@ -2,6 +2,7 @@
 	include('include/db.php');
 	$username = $_REQUEST["username_login"];
 	$pwd = md5($_REQUEST["password"]);
+	//$pwd = sha1($passmd5);
 	//echo $pwd;
 	
 	if(isset($username) && isset($pwd))
