@@ -75,8 +75,9 @@
                             <div class="post-content">
                                 <div class="blog-infinite">
 									<?php
-										$tips = "SELECT t.id AS id,t.created AS created,t.tags AS tags,t.title AS title,t.content AS content,t.likes AS likes,t.views AS views,t.post_type AS post_type,tc.name AS category,u.username AS author,up.picture AS picture FROM frtg_tips t LEFT JOIN frtg_tips_category tc ON tc.id = t.category_id LEFT JOIN frtg_user u ON u.id = t.user_id LEFT JOIN frtg_user_profile up ON up.user_id = u.id WHERE t.flag = 2 ORDER BY t.created DESC LIMIT 5";
+										$tips = "SELECT t.id AS id,t.created AS created,t.tags AS tags,t.title AS title,t.content AS content,t.likes AS likes,t.views AS views,t.post_type AS post_type,tc.name AS category,u.username AS author,up.picture AS picture FROM frtg_tips t LEFT JOIN frtg_tips_category tc ON tc.id = t.category_id LEFT JOIN frtg_user u ON u.id = t.user_id LEFT JOIN frtg_user_profile up ON up.user_id = u.id WHERE t.flag = 2 ORDER BY t.created DESC LIMIT 6";
 										$result = $mysqli->query($tips);
+										$count_result = $result->num_rows;
 										while($tip = $result->fetch_array(MYSQLI_ASSOC)){
 											if($tip['post_type'] == 1){
 												$timages = fetch_db('frtg_tips_image','WHERE tips_id = '.$tip['id']);
@@ -347,7 +348,13 @@
 										}
 									?>
                                 </div>
-                                <a class="button btn-large full-width uppercase more_tips" id="<?php echo $tips_id; ?>">More Tips</a>
+								<?php
+									if($count_result > 5){
+										echo '
+											<a class="button btn-large full-width uppercase more_tips" id="<?php echo $tips_id; ?>">More Tips</a>
+										';
+									}
+								?>
                             </div>
                         </div>
                     </div>
@@ -454,8 +461,7 @@
 	<script type="text/javascript">
 		jQuery(function() {
 			// Load More Button
-			jQuery('a.more_tips').live("click",function() 
-			{
+			jQuery('a.more_tips').live("click",function(){
 				var ID = jQuery(this).attr("id");
 				
 				jQuery("#"+ID).html('<img src="images/moreajax.gif" />');
@@ -513,6 +519,9 @@
 			});
 		});
 		
+	</script>
+	<script type="text/javascript">
+		<?php include "include/login_register_warning_checker.php"; ?>
 	</script>
 </body>
 </html>

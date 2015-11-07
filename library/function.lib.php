@@ -1,4 +1,6 @@
 <?php
+	date_default_timezone_set('Asia/Jakarta');
+	
 	function fetch_db($table_name,$where)
 	{
 		global $mysqli;
@@ -58,10 +60,10 @@
 	{
 		global $mysqli;
 		if(!empty($where)){
-			$query = "SELECT id FROM ".$table_name." ".$where;
+			$query = "SELECT * FROM ".$table_name." ".$where;
 		}
 		else{
-			$query = "SELECT id FROM ".$table_name;
+			$query = "SELECT * FROM ".$table_name;
 		}
 		$result = $mysqli->query($query);
 		

@@ -179,6 +179,10 @@
             }
         });
     </script>
+	<script type="text/javascript">
+		<?php include "include/login_register_warning_checker.php"; ?>
+	</script>
+
 </body>
 </html>
 

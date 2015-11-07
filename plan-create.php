@@ -454,5 +454,8 @@
 			tjq(".max-price-label").html( "IDR " + addCommas(tjq("#price-range").slider( "values", 1 )));
 		});
 	</script>
+	<script type="text/javascript">
+		<?php include "include/login_register_warning_checker.php"; ?>
+	</script>
 </body>
 </html>

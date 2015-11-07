@@ -281,6 +281,10 @@
     <!-- load page Javascript -->
     <script type="text/javascript" src="js/theme-scripts.js"></script>
     <script type="text/javascript" src="js/scripts.js"></script>
+	
+	<script type="text/javascript">
+		<?php include "include/login_register_warning_checker.php"; ?>
+	</script>
     
 </body>
 </html>

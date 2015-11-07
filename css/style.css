@@ -10463,4 +10463,14 @@ a.destination-button:hover {
 	max-height:30px;
 }
 
+.ui-autocomplete {
+	z-index: 9900;
+}
+
+.choose_province{
+	height:150px;
+	overflow:auto;
+	margin-bottom:15px;
+}
+
 /* END STYLING BY WESTLY */

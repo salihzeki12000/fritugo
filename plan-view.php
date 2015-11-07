@@ -2,6 +2,28 @@
 	session_start();
 	include "library/connect.php";
 	include "library/function.lib.php";
+	
+	if(isset($_GET['start_date']) && !empty($_GET['start_date'])){
+		$start_date = trim($mysqli->real_escape_string($_GET['start_date']));
+	}
+	if(isset($_GET['end_date']) && !empty($_GET['end_date'])){
+		$end_date = trim($mysqli->real_escape_string($_GET['end_date']));
+	}
+	if(isset($_GET['destination']) && !empty($_GET['destination'])){
+		$destination = trim($mysqli->real_escape_string($_GET['destination']));
+	}
+	if(isset($_GET['budget']) && !empty($_GET['budget'])){
+		$budget = trim($mysqli->real_escape_string($_GET['budget']));
+		if($budget == 250000){
+			$min_budget = $budget;
+		}
+		else if($budget >= 5000000){
+			$min_budget = $budget - 1000000;
+		}
+		else{
+			$min_budget = $budget - 500000;
+		}
+	}
 ?>
 <!DOCTYPE html>
 <!--[if IE 8]>          <html class="ie ie8"> <![endif]-->
@@ -74,114 +96,176 @@
 				<div class="row">
 					<div id="main" class="col-sms-12 col-sm-12 col-md-12">
 						<div class="booking-section travelo-box">
-							<form class="booking-form" action="plan-view.php" method="POST">
-								<div class="person-information">
-									<div class="form-group row">
-										<div class="col-sm-6 col-md-6">
-											<label>Start Date</label>
-											<div class="datepicker-wrap" style="z-index:1000;">
-												<input type="text" name="date_from" class="input-text full-width" placeholder="mm/dd/yy" />
-											</div>
-										</div>
-										<div class="col-sm-6 col-md-6">
-											<label>End Date</label>
-											<div class="datepicker-wrap" style="z-index:1000;">
-												<input type="text" name="date_from" class="input-text full-width" placeholder="mm/dd/yy" />
-											</div>
+							<div class="person-information">
+								<div class="form-group row">
+									<div class="col-sm-6 col-md-6">
+										<label>Duration</label>
+										<div class="input-group">
+											<input type="text" name="duration" class="input-text full-width" placeholder="How many days?" id="duration"/>
+											<div class="input-group-addon no-border">Days</div>
 										</div>
 									</div>
-									<div class="form-group row">
-										<div class="col-sm-6 col-md-6">
-											<label>Destination</label>
-											<input type="text" class="input-text full-width" placeholder="Osaka, Japan" value="" />
-										</div>
-										<div class="col-sm-6 col-md-6">
-											<label>Budget</label>
-											<div id="price-filter" class="">
-												<div class="panel-content" style="padding-top:5px; padding-bottom:5px;">
-													<div id="price-range" style="margin-bottom:5px;"></div>
-													<span class="min-price-label pull-left"></span>
-													<span class="max-price-label pull-right"></span>
-													<div class="clearer"></div>
-												</div><!-- end content -->
-											</div>
-										</div>
-									</div>
-									<div class="form-group row">
-										<div class="col-sm-3 col-md-3 pull-right">
-											<button type="submit" name="view_plan" class="full-width btn-large uppercase">View</button>
-										</div>
+									<div class="col-sm-6 col-md-6">
+										<label>Destination</label>
+										<input type="text" class="input-text full-width" placeholder="Osaka, Japan" id="destination" />
 									</div>
 								</div>
-							</form>
-							<?php if(isset($_POST['view_plan'])){ ?>
-								<hr />
-								<div class="travelo-box travel-ideas">
-									<div class="column-5 image-box suggestions">
-										<div class="box">
-											<a href="#" class="hover-effect style1">
-												<img src="http://placehold.it/160x160" alt="" />
-											</a>
-											<h4 class="caption"><a href="#">Adventure</a></h4>
-										</div>
-										<div class="box">
-											<a href="#" class="selected-effect">
-												<img src="http://placehold.it/160x160" alt="" />
-											</a>
-											<h4 class="caption"><a href="#">Beaches &amp; Sun</a></h4>
-										</div>
-										<div class="box">
-											<a href="#" class="hover-effect style1">
-												<img src="http://placehold.it/160x160" alt="" />
-											</a>
-											<h4 class="caption"><a href="#">Casinos</a></h4>
-										</div>
-										<div class="box">
-											<a href="#" class="hover-effect style1">
-												<img src="http://placehold.it/160x160" alt="" />
-											</a>
-											<h4 class="caption"><a href="#">Family Fun</a></h4>
-										</div>
-										<div class="box">
-											<a href="#" class="hover-effect style1">
-												<img src="http://placehold.it/160x160" alt="" />
-											</a>
-											<h4 class="caption"><a href="#">History</a></h4>
-										</div>
-										<div class="box">
-											<a href="#" class="hover-effect style1">
-												<img src="http://placehold.it/160x160" alt="" />
-											</a>
-											<h4 class="caption"><a href="#">Culture</a></h4>
-										</div>
-										<div class="box">
-											<a href="#" class="hover-effect style1">
-												<img src="http://placehold.it/160x160" alt="" />
-											</a>
-											<h4 class="caption"><a href="#">Romance</a></h4>
-										</div>
-										<div class="box">
-											<a href="#" class="selected-effect">
-												<img src="http://placehold.it/160x160" alt="" />
-											</a>
-											<h4 class="caption"><a href="#">Shopping</a></h4>
-										</div>
-										<div class="box">
-											<a href="#" class="hover-effect style1">
-												<img src="http://placehold.it/160x160" alt="" />
-											</a>
-											<h4 class="caption"><a href="#">Skiing</a></h4>
-										</div>
-										<div class="box">
-											<a href="#" class="hover-effect style1">
-												<img src="http://placehold.it/160x160" alt="" />
-											</a>
-											<h4 class="caption"><a href="#">Clubs</a></h4>
+								<div class="form-group row">
+									<div class="col-sm-6 col-md-6">
+										<label>Budget</label>
+										<div id="price-filter" class="">
+											<div class="panel-content" style="padding-top:5px; padding-bottom:5px;">
+												<div id="price-range" style="margin-bottom:5px;"></div>
+												<span class="min-price-label pull-left" id="min_budget"></span>
+												<span class="max-price-label pull-right" id="max_budget"></span>
+												<div class="clearer"></div>
+											</div><!-- end content -->
 										</div>
 									</div>
-									<a href="#" class="uppercase full-width button btn-large">more</a>
+									<div class="col-sm-3 col-md-3">
+										<label>&nbsp;</label>
+										<button type="submit" name="view_plan" class="full-width btn-medium uppercase" id="view_plan_button">View</button>
+									</div>
 								</div>
-							<?php } ?>
+							</div>
+
+							<div class="travelo-box travel-ideas" style="display:block;" id="trip-plan-container">
+								<hr/>
+								<div class="row image-box hotel listing-style1">
+									<div class="col-sm-6 col-md-3">
+										<article class="box">
+											<figure class="bg-f5f5f5">
+												<a href="#" class="trip-thumb-zoom-in img-trips-thumb">
+													<img width="270" height="160" alt="" src="images/trips/thumb/bali-thumb.jpg">
+												</a>
+											</figure>
+											<div class="budget-trip-thumb col-sm-12">
+												<i class="fa fa-heart"></i> 1740
+												&nbsp; | &nbsp;
+												<i class="fa fa-eye"></i> 2340
+											</div>
+											<div class="details">
+												<span class="price">3 Days</span>
+												<a href="#"><h4 class="box-title">Bali<small>Indonesia</small></h4></a>
+												<div class="clear"></div>
+												<div class="feedback">
+													<div class="trip-owner">
+														<div class="row">
+															<div class="col-xs-4 col-md-4"><img src="images/user/ashley.jpg" class="img-circle img-responsive"></div>
+															<div class="col-xs-8 col-md-8 border-left-trip-thumb">
+																<a href="#" class="user-name-thumb">Ashley Jones</a><br/>
+																<span class="user-info-trip-thumb">
+																	<i class="fa fa-group"></i> 1740<br/>
+																	<button class="button btn-mini sky-blue1 follow-button-trip-thumb">Follow</button>
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</article>
+									</div>
+									<div class="col-sm-6 col-md-3">
+										<article class="box">
+											<figure class="bg-f5f5f5">
+												<a href="#" class="trip-thumb-zoom-in img-trips-thumb">
+													<img width="270" height="160" alt="" src="images/trips/thumb/osaka-thumb.jpg">
+												</a>
+											</figure>
+											<div class="budget-trip-thumb col-sm-12">
+												<i class="fa fa-heart-o"></i> 1740
+												&nbsp; | &nbsp;
+												<i class="fa fa-eye"></i> 2340
+											</div>
+											<div class="details">
+												<span class="price">3 Days</span>
+												<a href="#"><h4 class="box-title">Osaka<small>Japan</small></h4></a>
+												<div class="clear"></div>
+												<div class="feedback">
+													<div class="trip-owner">
+														<div class="row">
+															<div class="col-xs-4 col-md-4"><img src="images/user/thumb/user-default-thumb.jpg" class="img-circle"></div>
+															<div class="col-xs-8 col-md-8 border-left-trip-thumb">
+																<a href="#" class="user-name-thumb">Mark Twain</a><br/>
+																<span class="user-info-trip-thumb">
+																	<i class="fa fa-group"></i> 1740<br/>
+																	<button class="button btn-mini sky-blue1 follow-button-trip-thumb">Follow</button>
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</article>
+									</div>
+									<div class="col-sm-6 col-md-3">
+										<article class="box">
+											<figure class="bg-f5f5f5">
+												<a href="#" class="trip-thumb-zoom-in img-trips-thumb">
+													<img width="270" height="160" alt="" src="images/trips/thumb/raja-ampat-thumb.jpg">
+												</a>
+											</figure>
+											<div class="budget-trip-thumb col-sm-12">
+												<i class="fa fa-heart"></i> 1740
+												&nbsp; | &nbsp;
+												<i class="fa fa-eye"></i> 2340
+											</div>
+											<div class="details">
+												<span class="price">3 Days</span>
+												<a href="#"><h4 class="box-title">Raja Ampat<small>Indonesia</small></h4></a>
+												<div class="clear"></div>
+												<div class="feedback">
+													<div class="trip-owner">
+														<div class="row">
+															<div class="col-xs-4 col-sm-4"><img src="images/user/thumb/women-thumb.jpg" class="img-circle"></div>
+															<div class="col-xs-8 col-sm-8 border-left-trip-thumb">
+																<a href="#" class="user-name-thumb">Kate Johnson</a><br/>
+																<span class="user-info-trip-thumb">
+																	<i class="fa fa-group"></i> 1740<br/>
+																	<button class="button btn-mini sky-blue1 follow-button-trip-thumb">Follow</button>
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</article>
+									</div>
+									<div class="col-sm-6 col-md-3">
+										<article class="box">
+											<figure class="bg-f5f5f5">
+												<a href="#" class="trip-thumb-zoom-in img-trips-thumb">
+													<img width="270" height="160" alt="" src="images/trips/thumb/Singapore-thumb.jpg">
+												</a>
+											</figure>
+											<div class="budget-trip-thumb col-sm-12">
+												<i class="fa fa-heart"></i> 1740
+												&nbsp; | &nbsp;
+												<i class="fa fa-eye"></i> 2340
+											</div>
+											<div class="details">
+												<span class="price">3 Days</span>
+												<a href="#"><h4 class="box-title">Singapore<small>Singapore</small></h4></a>
+												<div class="clear"></div>
+												<div class="feedback">
+													<div class="trip-owner">
+														<div class="row">
+															<div class="col-xs-4 col-sm-4"><img src="images/user/thumb/user-default-thumb.jpg" class="img-circle"></div>
+															<div class="col-xs-8 col-sm-8 border-left-trip-thumb">
+																<a href="#" class="user-name-thumb">Jonah Bros</a><br/>
+																<span class="user-info-trip-thumb">
+																	<i class="fa fa-group"></i> 1740<br/>
+																	<button class="button btn-mini light-orange follow-button-trip-thumb">Unfollow</button>
+																</span>
+															</div>
+														</div>
+													</div>
+												</div>
+											</div>
+										</article>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -217,7 +301,13 @@
 	<script type="text/javascript">
 		function initialize() {
 			var input = document.getElementById('destination');
-			var autocomplete = new google.maps.places.Autocomplete(input);
+			var options = {
+				language: 'ind-id',
+				types:["(regions)"],
+				componentRestrictions: {country:"id"}
+			};
+			autocomplete = new google.maps.places.Autocomplete(input, options);
+			console.log(autocomplete);
 		}
 		google.maps.event.addDomListener(window, 'load', initialize);
 	</script>
@@ -251,7 +341,7 @@
 			tjq("#price-range").slider({
 				range: true,
 				min: 250000,
-				max: 20000000,
+				max: 25000000,
 				step: 250000,
 				values: [ 1000000, 5000000 ],
 				slide: function( event, ui ) {
@@ -261,7 +351,44 @@
 			});
 			tjq(".min-price-label").html( "IDR " + addCommas(tjq("#price-range").slider( "values", 0 )));
 			tjq(".max-price-label").html( "IDR " + addCommas(tjq("#price-range").slider( "values", 1 )));
+			
+			// AJAX call for plan view
+			tjq("#view_plan_button").live("click",function(){
+				var min_budget = tjq("#min_budget").text();
+				var max_budget = tjq("#max_budget").text();
+				
+				// Cut the string value of min_budget and max_budget.
+				var min_budget = min_budget.substring(4);
+				var max_budget = max_budget.substring(4);
+				
+				// Remove comma
+				var min_budget = min_budget.replace(/,/g,"");
+				var max_budget = max_budget.replace(/,/g,"");
+				
+				tjq.ajax({
+					url: "ajax/ajax.php",
+					type: "POST",
+					data:{
+						mod: "view_plan",
+						duration: tjq("#duration").val(),
+						destination: tjq("#destination").val(),
+						min_budget: min_budget,
+						max_budget: max_budget,
+					},
+					dataType: "JSON",
+					cache: false,
+					success: function(data){
+						
+					},
+					error: function(data){
+						alert("We are experiencing network error. Refresh the page to experience something better.");
+					},
+				});
+			});
 		});
+	</script>
+	<script type="text/javascript">
+		<?php include "include/login_register_warning_checker.php"; ?>
 	</script>
 </body>
 </html>

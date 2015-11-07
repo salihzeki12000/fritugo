@@ -586,42 +586,112 @@
 				$response['status'] = "empty";
 			}
 		}
-		
-		else if($mod == "position"){
-			$position_name = trim($mysqli->real_escape_string($_POST['value']));
-			$company_id = trim($mysqli->real_escape_string($_POST['company_id']));
-			
-			$option = "";
-			$positions = fetch_db('company_open_position','WHERE company_id = '.$company_id.' AND position_name = "'.$position_name.'"');
-			if(!empty($positions)){
-				foreach($positions as $position){
-					$option .= '<option value="'.$position['id'].'">'.$position['placement'].'</option>';
+		else if($mod == "username_availability"){
+			if(!empty($_POST['username'])){
+				$username = trim($mysqli->real_escape_string($_POST['username']));
+				$check = count_rows('frtg_user','WHERE username = "'.$username.'"');
+				if($check > 0){
+					// Not Available
+					$response['status'] = "not_available";
+					$response['data'] = "<span style='color:#ff0000; font-size:8pt;'> Username Not Available.</span>";
 				}
-				$response['data'] = $option;
-				$response['status'] = "success";
-			}
-			else{
-				$response['data'] = '<option value="error">Loading...</option>';
-				$response['status'] = "empty";
+				else{
+					// Available
+					$response['status'] = "available";
+				}
 			}
 		}
-		else if($mod == "position_applied"){
-			$position_name = trim($mysqli->real_escape_string($_POST['value']));
-			$company_id = trim($mysqli->real_escape_string($_POST['company_id']));
-			
-			$option = '<option value="">Any Placement</option>';
-			$positions = fetch_db('company_open_position','WHERE company_id = '.$company_id.' AND position_name = "'.$position_name.'"');
-			if(!empty($positions)){
-				foreach($positions as $position){
-					$option .= '<option value="'.$position['placement'].'">'.$position['placement'].'</option>';
+		else if($mod == "email_availability"){
+			if(!empty($_POST['email'])){
+				$email = trim($mysqli->real_escape_string($_POST['email']));
+				$check = count_rows('frtg_user','WHERE email = "'.$email.'"');
+				if($check > 0){
+					// Not Available
+					$response['status'] = "not_available";
+					$response['data'] = "<span style='color:#ff0000; font-size:8pt;'> Email already exist.</span>";
 				}
-				$response['data'] = $option;
-				$response['status'] = "success";
+				else{
+					// Available
+					$response['status'] = "available";
+				}
 			}
-			else{
-				$response['data'] = '<option value="error">Loading...</option>';
-				$response['status'] = "empty";
+		}
+		else if($mod == "view_plan"){
+			$addquery = "";
+			if(!empty($_POST['min_budget']) && !empty($_POST['max_budget'])){
+				$min_budget = trim($mysqli->real_escape_string($_POST['min_budget']));
+				$max_budget = trim($mysqli->real_escape_string($_POST['max_budget']));
+				$addquery = "budget BETWEEN ".$min_budget." AND ".$max_budget;
 			}
+			if(!empty($_POST['duration'])){
+				$duration = trim($mysqli->real_escape_string($_POST['duration']));
+				$addquery = " AND duration = ".$duration;
+			}
+			if(!empty($_POST['destination'])){
+				$destination = trim($mysqli->real_escape_string($_POST['destination']));
+				$addquery = " AND ";
+			}
+			
+			// Convert start and end date
+			$response['data'] = $duration;
+			
+			//$query = "SELECT * FROM frtg_trip WHERE duration = ".$duration." ";
+		}
+		else if($mod == "autocomplete"){
+			$searchdata = trim($mysqli->real_escape_string($_POST['searchdata']));
+			
+			$response = array();
+			
+			$query_city = "SELECT a.id AS `id`, a.city_name AS `city_name`,b.province_name AS `province_name`,c.name AS `country_name` FROM frtg_city a LEFT JOIN frtg_province b ON a.province_id = b.id LEFT JOIN frtg_country c ON b.country_id = c.id WHERE a.city_name LIKE '%".$searchdata."%'";
+			$result = $mysqli->query($query_city);
+			if($result->num_rows > 0){
+				while($row = $result->fetch_array(MYSQLI_ASSOC)){
+					$resp['value'] = $row['city_name'].", ".$row['province_name'].", ".$row['country_name'];
+					$resp['abbrev'] = $row['id'];
+					array_push($response,$resp);
+				}
+			}
+			
+			$query_province = "SELECT b.id AS `id`, b.province_name AS `province_name`,c.name AS `country_name` FROM frtg_province b LEFT JOIN frtg_country c ON b.country_id = c.id WHERE b.province_name LIKE '%".$searchdata."%'";
+			$result = $mysqli->query($query_province);
+			if($result->num_rows > 0){
+				while($row = $result->fetch_array(MYSQLI_ASSOC)){
+					$resp['value'] = $row['province_name'].", ".$row['country_name'];
+					$resp['abbrev'] = $row['id'];
+					array_push($response,$resp);
+				}
+			}
+			
+			$query_country = "SELECT id, name AS `country_name` FROM frtg_country WHERE name LIKE '%".$searchdata."%'";
+			$result = $mysqli->query($query_country);
+			if($result->num_rows > 0){
+				while($row = $result->fetch_array(MYSQLI_ASSOC)){
+					$resp['value'] = $row['country_name'];
+					$resp['abbrev'] = $row['id'];
+					array_push($response,$resp);
+				}
+			}
+		}
+		
+		else if($mod == "get_province"){
+			$country = trim($mysqli->real_escape_string($_POST['country']));
+			
+			$response['data'] = '<div class="row">';
+			
+			$provinces = fetch_db('frtg_province','WHERE country_id = '.$country.' ORDER BY popularity DESC');
+			foreach($provinces as $province){
+				$response['data'] .= '
+					<div class="col-xs-6 col-sm-4">
+						<div class="thumbnail">
+							<img src="'.$province['image'].'" alt="'.$province['province_name'].'">
+							<div class="caption">
+								<h5>'.$province['province_name'].'</h5>
+							</div>
+						</div>
+					</div>
+				';
+			}
+			$response['data'] .= '</div>';
 		}
 	}
 

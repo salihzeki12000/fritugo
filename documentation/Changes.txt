@@ -1,0 +1,23 @@
++ Check Username Availability:
+- Ganti menjadi 'On KeyUp'
+- Dipindahkan ke js/script.js
+- Ditambahkan pengecekan kalau kurang dari 8 characters
+
++ Database:
+- Added column 'newsletter' in frtg_user
+
++ Register:
+- Changed 'register_kueri.php' to 'function/actionRegister.php'
+- Confirm Password ditambahkan pengecekan di client side menggunakan jQuery
+- Cek password kalau kurang dari 8 characters
+- 
+
++ Check Email Availability
+- Menambahkan check email availability
+
++ Datepicker
+- Change date format to dd/mm/yy
+
++ Destination Field
+- Menggunakan jquery autocomplete
+- Fetch data kota dari database (kita buat sendiri list kota)
