@@ -1,3 +1,8 @@
+<?php
+	session_start();
+	include "library/connect.php";
+	include "library/function.lib.php";
+?>
 <!DOCTYPE html>
 <!--[if IE 8]>          <html class="ie ie8"> <![endif]-->
 <!--[if IE 9]>          <html class="ie ie9"> <![endif]-->
@@ -73,23 +78,6 @@
 								<div class="search-box container">
 									<div class="search-tab-content">
 										<div class="tab-pane fade active in" id="hotels-tab">
-											<script type="text/javascript" src="//api.skyscanner.net/api.ashx?key=e1f36edd-f74d-45d6-b777-52a9d6333c87"></script>
-<script type="text/javascript">
-   skyscanner.load("snippets","2");
-   function main(){
-       var snippet = new skyscanner.snippets.SearchPanelControl();
-       snippet.setShape("leaderboard");
-       snippet.setCulture("en-GB");
-       snippet.setCurrency("IDR");
-       snippet.setMarket("ID");
-       snippet.setColourScheme("classicbluelight");
-       snippet.setProduct("hotels","1");
-
-       snippet.draw(document.getElementById("snippet_searchpanel"));
-   }
-   skyscanner.setOnLoadCallback(main);
-</script>
-<div id="snippet_searchpanel" style="width: auto; height:auto;"></div>
 											<form action="hotels.php" method="POST">
 												<h4 class="title">Where do you want to go?</h4>
 												<div class="row">
@@ -466,7 +454,7 @@
 													</div>
 													<span class="review">585 reviews</span>
 												</div>
-											</div>
+												</div>
 											<div>
 												<p>Nunc cursus libero purus ac congue ar lorem cursus ut sed vitae pulvinar massa idend porta nequetiam elerisque mi id, consectetur adipi deese cing elit maus fringilla bibe endum.</p>
 												<div>
@@ -549,6 +537,9 @@
             });
         });
     </script>
+	<script type="text/javascript">
+		<?php include "include/login_register_warning_checker.php"; ?>
+	</script>
 </body>
 </html>
 

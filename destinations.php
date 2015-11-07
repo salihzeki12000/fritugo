@@ -1,3 +1,8 @@
+<?php
+	session_start();
+	include "library/connect.php";
+	include "library/function.lib.php";
+?>
 <!DOCTYPE html>
 <!--[if IE 8]>          <html class="ie ie8"> <![endif]-->
 <!--[if IE 9]>          <html class="ie ie9"> <![endif]-->
@@ -261,5 +266,8 @@
 		<script type="text/javascript" src="js/theme-scripts.js"></script>
 		<script type="text/javascript" src="js/scripts.js"></script>
 		
+		<script type="text/javascript">
+			<?php include "include/login_register_warning_checker.php"; ?>
+		</script>
 	</body>
 </html>
