@@ -402,14 +402,14 @@ function changeTraveloElementUI() {
                 tjq('#ui-datepicker-div').addClass(themeClass);
             },
             onClose: function(selectedDate) {
-                if ( tjq(this).attr('name') == 'date_from' ) {
-                    if ( tjq(this).closest('form').find('input[name="date_to"]').length > 0 ) {
-                        tjq(this).closest('form').find('input[name="date_to"]').datepicker("option", "minDate", selectedDate);
+                if ( tjq(this).attr('name') == 'start_date' ) {
+                    if ( tjq(this).closest('form').find('input[name="end_date"]').length > 0 ) {
+                        tjq(this).closest('form').find('input[name="end_date"]').datepicker("option", "minDate", selectedDate);
                     }
                 }
-                if ( tjq(this).attr('name') == 'date_to' ) {
-                    if ( tjq(this).closest('form').find('input[name="date_from"]').length > 0 ) {
-                        tjq(this).closest('form').find('input[name="date_from"]').datepicker("option", "maxDate", selectedDate);
+                if ( tjq(this).attr('name') == 'end_date' ) {
+                    if ( tjq(this).closest('form').find('input[name="start_date"]').length > 0 ) {
+                        tjq(this).closest('form').find('input[name="start_date"]').datepicker("option", "maxDate", selectedDate);
                     }
                 }
             }

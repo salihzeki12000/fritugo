@@ -36,6 +36,7 @@
 	
 	<!-- Responsive Styles -->
 	<link rel="stylesheet" href="css/responsive.css">
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 	
 	<!-- CSS for IE -->
 	<!--[if lte IE 9]>
@@ -69,114 +70,120 @@
 				<div class="row">
 					<div id="main" class="col-sms-6 col-sm-8 col-md-9">
 						<div class="booking-section travelo-box">
-							
-							<form class="booking-form">
-								<div class="person-information">
-									<div class="form-group row">
-										<div class="col-sm-6 col-md-6">
-											<label>Start Date</label>
-											<div class="datepicker-wrap" style="z-index:1000;">
-												<input type="text" name="date_from" class="input-text full-width" placeholder="mm/dd/yy" />
-											</div>
+							<div class="person-information">
+								<div class="form-group row">
+									<div class="col-sm-6 col-md-6">
+										<label>Start Date</label>
+										<div class="datepicker-wrap" style="z-index:1000;">
+											<input type="text" name="start_date" id="start_date" class="input-text full-width" placeholder="dd/mm/yy" />
 										</div>
-										<div class="col-sm-6 col-md-6">
-											<label>End Date</label>
-											<div class="datepicker-wrap" style="z-index:1000;">
-												<input type="text" name="date_from" class="input-text full-width" placeholder="mm/dd/yy" />
-											</div>
+										<div id="start-date-error" style="display:none;"></div>
+									</div>
+									<div class="col-sm-6 col-md-6">
+										<label>End Date</label>
+										<div class="datepicker-wrap" style="z-index:1000;">
+											<input type="text" name="end_date" id="end_date" class="input-text full-width" placeholder="dd/mm/yy" />
+										</div>
+										<div id="end-date-error" style="display:none;"></div>
+									</div>
+								</div>
+								<div class="row">
+									<div class="col-xs-12 col-sm-6">
+										<div class="form-group">
+											<label>Destination</label>
+											<input type="text" class="input-text full-width" placeholder="Osaka, Japan" value="" name="destination" id="destination" />
+											<div id="display"></div>
+											<div id="destination-error" style="display:none;"></div>
 										</div>
 									</div>
-									<div class="form-group row">
-										<div class="col-sm-6 col-md-6">
-											<label>Destination</label>
-											<input type="text" class="input-text full-width" placeholder="Osaka, Japan" value="" id="destination" />
-										</div>
-										<div class="col-sm-6 col-md-6">
+									<div class="col-xs-12 col-sm-6">
+										<div class="form-group">
 											<label>Budget</label>
 											<div id="price-filter" class="">
 												<div class="panel-content" style="padding-top:5px; padding-bottom:5px;">
 													<div id="price-range" style="margin-bottom:5px;"></div>
-													<span class="min-price-label pull-left"></span>
-													<span class="max-price-label pull-right"></span>
+													<span class="max-price-label pull-right" id="budget" name="budget"></span>
 													<div class="clearer"></div>
 												</div><!-- end content -->
 											</div>
 										</div>
 									</div>
-									<div class="form-group row">
-										<div class="col-sm-3 col-md-3 pull-right">
-											<button type="submit" class="full-width btn-large uppercase next-right-button">Next</button>
-										</div>
+								</div>
+								<div class="form-group row">
+									<div class="col-sm-3 col-md-3 pull-right">
+										<button type="button" id="create-plan-button" class="full-width btn-large uppercase next-right-button">Next</button>
 									</div>
 								</div>
-								<hr />
-								<div class="travelo-box travel-ideas">
-									<a href="#" class="button btn-mini pull-right">RESET ALL</a>
-									<h2 class="idea-title box"><span class="index">1</span>Places</h2>
-									<div class="suggested-places">
-										<div class="overflow-hidden">
-											<div class="row">
-												<div class="col-sm-4">
-													<ul class="check-square box">
-														<li class="active">
-															<a href="#">
-																<h6 class="box-title">Hotels<small>55,785 places</small></h6>
-															</a>
-														</li>
-														<li>
-															<a href="#">
-																<h6 class="box-title">Restaurants<small>466 places</small></h6>
-															</a>
-														</li>
-														<li>
-															<a href="#">
-																<h6 class="box-title">Tourist Attractions<small>1041 places</small></h6>
-															</a>
-														</li>
-														<li>
-															<a href="#">
-																<h6 class="box-title">Sports<small>307 places</small></h6>
-															</a>
-														</li>
-														<li>
-															<a href="#">
-																<h6 class="box-title">Entertainments<small>3345 places</small></h6>
-															</a>
-														</li>
-													</ul>
-												</div>
-												<div class="col-sm-4">
-													<ul class="check-square box">
-														<li>
-															<a href="#">
-																<h6 class="box-title">One Star<small>5,578 places</small></h6>
-															</a>
-														</li>
-														<li>
-															<a href="#">
-																<h6 class="box-title">Two Stars<small>466 places</small></h6>
-															</a>
-														</li>
-														<li>
-															<a href="#">
-																<h6 class="box-title">Three Stars<small>3345 places</small></h6>
-															</a>
-														</li>
-														<li class="active">
-															<a href="#">
-																<h6 class="box-title">Four Stars<small>307 places</small></h6>
-															</a>
-														</li>
-														<li>
-															<a href="#">
-																<h6 class="box-title">Five Stars<small>1041 places</small></h6>
-															</a>
-														</li>
-													</ul>
-												</div>
+							</div>
+							<hr />
+							<div class="travelo-box travel-ideas" id="attraction-box" style="display:none;">
+								<a href="#" class="button btn-mini pull-right">RESET ALL</a>
+								<h2 class="idea-title box"><span class="index">1</span>Places</h2>
+								<div class="suggested-places">
+									<div class="overflow-hidden">
+										<div class="row">
+											<div class="col-sm-4">
+												<ul class="check-square box">
+													<li class="active">
+														<a href="#">
+															<h6 class="box-title">Hotels<small>55,785 places</small></h6>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<h6 class="box-title">Restaurants<small>466 places</small></h6>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<h6 class="box-title">Tourist Attractions<small>1041 places</small></h6>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<h6 class="box-title">Sports<small>307 places</small></h6>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<h6 class="box-title">Entertainments<small>3345 places</small></h6>
+														</a>
+													</li>
+												</ul>
+											</div>
+											<div class="col-sm-4">
+												<ul class="check-square box">
+													<li>
+														<a href="#">
+															<h6 class="box-title">One Star<small>5,578 places</small></h6>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<h6 class="box-title">Two Stars<small>466 places</small></h6>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<h6 class="box-title">Three Stars<small>3345 places</small></h6>
+														</a>
+													</li>
+													<li class="active">
+														<a href="#">
+															<h6 class="box-title">Four Stars<small>307 places</small></h6>
+														</a>
+													</li>
+													<li>
+														<a href="#">
+															<h6 class="box-title">Five Stars<small>1041 places</small></h6>
+														</a>
+													</li>
+												</ul>
 											</div>
 										</div>
 									</div>
+								</div>
+								<div id="attraction-second-step" style="display:none;">
 									<h2 class="idea-title"><span class="index">2</span>Attraction</h2>
 									<div class="column-5 image-box suggestions">
 										<div class="box">
@@ -242,32 +249,32 @@
 									</div>
 									<a href="#" class="uppercase full-width button btn-large">more</a>
 								</div>
-							</form>
+							</div>
 						</div>
 					</div>
-					<div class="sidebar col-sms-6 col-sm-4 col-md-3">
+					<div class="sidebar col-sms-6 col-sm-4 col-md-3" id="trip-details-box" style="display:none;">
 						<div class="booking-details travelo-box">
 							<h4>TRIP DETAILS<a href="flight-detailed.html" class="button pull-right font-8">EDIT</a></h4>
 							<article class="flight-booking-details">
 								<figure class="clearfix">
 									<a title="" href="flight-detailed.html" class="middle-block"><img class="middle-item" alt="" src="http://placehold.it/75x75"></a>
 									<div class="travel-title">
-										<h5 class="box-title">Kuta, Bali<small>Indonesia</small></h5>
+										<h5 class="box-title" id="box-title"></h5>
 									</div>
 								</figure>
 								<div class="details">
 									<div class="constant-column-3 timing clearfix">
 										<div class="check-in">
 											<label>Start Date</label>
-											<span>Sept 30, 2015</span>
+											<span id="details-start-date"></span>
 										</div>
 										<div class="duration text-center">
 											<i class="soap-icon-clock"></i>
-											<span>6d 5n</span>
+											<span id="details-duration">6d 5n</span>
 										</div>
 										<div class="check-out">
 											<label>End Date</label>
-											<span>Oct 5 2015</span>
+											<span id="details-end-date"></span>
 										</div>
 									</div>
 								</div>
@@ -393,25 +400,15 @@
 	</div>
 	
 	<!-- Javascript -->
-	<script type="text/javascript" src="js/jquery-1.11.1.min.js"></script>
+	<script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
 	<script type="text/javascript" src="js/jquery.noconflict.js"></script>
 	<script type="text/javascript" src="js/modernizr.2.7.1.min.js"></script>
 	<script type="text/javascript" src="js/jquery-migrate-1.2.1.min.js"></script>
 	<script type="text/javascript" src="js/jquery.placeholder.js"></script>
-	<script type="text/javascript" src="js/jquery-ui.1.10.4.min.js"></script>
+	<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 	
 	<!-- Twitter Bootstrap -->
 	<script type="text/javascript" src="js/bootstrap.js"></script>
-	
-	<!-- Google Places Autocomplete API -->
-	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCFq_BipqZO85dGFOpGXlEDG5Mci1uHiXA&libraries=places"></script>
-	<script type="text/javascript">
-		function initialize() {
-			var input = document.getElementById('destination');
-			var autocomplete = new google.maps.places.Autocomplete(input);
-		}
-		google.maps.event.addDomListener(window, 'load', initialize);
-	</script>
 	
 	<script type="text/javascript" src="js/calendar.js"></script>
 	
@@ -439,23 +436,127 @@
 		}
 		
 		tjq(document).ready(function() {
+			// BUDGET SLIDER
 			tjq("#price-range").slider({
-				range: true,
+				range: "min",
 				min: 250000,
-				max: 20000000,
+				max: 25000000,
 				step: 250000,
-				values: [ 1000000, 5000000 ],
+				value: 5000000,
 				slide: function( event, ui ) {
-					tjq(".min-price-label").html( "IDR " + addCommas(ui.values[ 0 ]));
-					tjq(".max-price-label").html( "IDR " + addCommas(ui.values[ 1 ]));
+					tjq(".max-price-label").html( "IDR " + addCommas(ui.value));
+					tjq( "#price-range" ).val( ui.value );
 				}
 			});
-			tjq(".min-price-label").html( "IDR " + addCommas(tjq("#price-range").slider( "values", 0 )));
-			tjq(".max-price-label").html( "IDR " + addCommas(tjq("#price-range").slider( "values", 1 )));
+			tjq(".max-price-label").html( "IDR " + addCommas(tjq("#price-range").slider( "value" )));
+			
+			// AUTOCOMPLETE
+			tjq("#destination").keyup(function() {
+				tjq( "#destination" ).autocomplete({
+					source: function( request, response ) {
+						tjq.ajax({
+							url: "ajax/ajax.php",
+							type:"POST",
+							dataType: "json",
+							data: {
+								mod:"autocomplete",
+								searchdata: request.term
+							},
+							success: function( data ) {
+								response(data);
+							}
+						});
+					},
+					minLength: 0,
+					select: function( event, ui ) {
+						tjq('#destination').val(ui.item.abbrev);
+						
+						// CHECK DESTINATION IS IT CITY / PROVINCE / COUNTRY
+						String.prototype.count=function(s1) { 
+							return (this.length - this.replace(new RegExp(s1,"g"), '').length) / s1.length;
+						}
+						var commas = ui.item.value.count(',');
+						if(commas == 0){
+							tjq("#province_box").fadeIn(1500);
+							
+							tjq.ajax({
+								url:"ajax/ajax.php",
+								type:"POST",
+								dataType:"JSON",
+								data:{
+									mod:"get_province",
+									country:ui.item.abbrev,
+								},
+								success: function(data){
+									tjq("#province_container").html(data.data);
+								},
+							});
+						}
+						else{
+							tjq("#province_container").html();
+							tjq("#province_box").fadeOut(1000);
+						}
+					},
+					open: function() {
+						tjq( this ).removeClass( "ui-corner-all" ).addClass( "ui-corner-top" );
+					},
+					close: function() {
+						tjq( this ).removeClass( "ui-corner-top" ).addClass( "ui-corner-all" );
+					}
+				});
+			});
+			
+			tjq('#create-plan-button').on('click', function(){
+				var start_date = tjq('#start_date').val();
+				var end_date = tjq('#end_date').val();
+				var destination = tjq('#destination').val();
+				var budget = tjq('#budget').text();
+				
+				if(start_date == ''){
+					tjq('#start_date').css('background','red');
+					tjq('#start-date-error').html('Please enter your starting date');
+					tjq('#start-date-error').show();
+					tjq('#start_date').on('focus', function(){
+						tjq('#start_date').css('background','none');
+						tjq('#start-date-error').fadeOut(5000);
+					});
+				}
+				if(end_date == ''){
+					tjq('#end_date').css('background','red');
+					tjq('#end-date-error').html('Please enter your end date');
+					tjq('#end-date-error').show();
+					tjq('#end_date').on('focus', function(){
+						tjq('#end_date').css('background','none');
+						tjq('#end-date-error').fadeOut(5000);
+					});
+				}
+				if(destination == ''){
+					tjq('#destination').css('background','red');
+					tjq('#destination-error').html('Please enter your destination');
+					tjq('#destination-error').show();
+					tjq('#destination').on('focus', function(){
+						tjq('#destination').css('background','none');
+						tjq('#destination-error').fadeOut(5000);
+					});
+				}
+				if(start_date != '' && end_date != '' && destination != ''){
+					tjq('#attraction-box').fadeIn(1500);
+					tjq('#trip-details-box').fadeIn(1500);
+					
+					// Split the destination, then add it to trip details
+					var destination_arr = destination.split(',');
+					tjq('#box-title').html(destination_arr[0]+','+destination_arr[1]+'<small>'+destination_arr[2]+'</small>');
+					
+					// Convert start date and end date, then add it to trip details
+					tjq('#details-start-date').html(start_date);
+					tjq('#details-end-date').html(end_date);
+				}
+			});
 		});
-	</script>
-	<script type="text/javascript">
-		<?php include "include/login_register_warning_checker.php"; ?>
+		
+		<?php
+			include "include/login_register_warning_checker.php";
+		?>
 	</script>
 </body>
 </html>
